@@ -24,8 +24,12 @@ namespace QSchematic::Items
         Node(int type = Item::NodeType, QGraphicsItem* parent = nullptr);
         ~Node() override;
 
-        gpds::container to_container() const override;
-        void from_container(const gpds::container& container) override;
+        friend class ::boost::serialization::access;
+        template<class Archive>
+        void save(Archive& ar, const unsigned int version) const;
+        template<class Archive>
+        void load(Archive& ar, const unsigned int version);
+        BOOST_SERIALIZATION_SPLIT_MEMBER()
         std::shared_ptr<Item> deepCopy() const override;
 
         bool addConnector(const std::shared_ptr<Connector>& connector);
@@ -61,3 +65,5 @@ namespace QSchematic::Items
     };
 
 }
+
+BOOST_CLASS_EXPORT_KEY(QSchematic::Items::Node)

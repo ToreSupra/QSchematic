@@ -6,7 +6,9 @@
 #include "wire_system/manager.hpp"
 //#include "utils/itemscustodian.h"
 
-#include <gpds/serialize.hpp>
+#include <boost/serialization/access.hpp>
+#include <boost/serialization/split_member.hpp>
+
 #include <QGraphicsScene>
 #include <QUndoStack>
 
@@ -34,15 +36,12 @@ namespace QSchematic
      *          "document" type.
      */
     class Scene :
-        public QGraphicsScene,
-        public gpds::serialize
+        public QGraphicsScene
     {
         Q_OBJECT
         Q_DISABLE_COPY_MOVE(Scene)
 
     public:
-        static constexpr const char* gpds_name = "qschematic";
-
         qreal z_value_background = -10'000;
 
         enum Mode {
@@ -56,8 +55,12 @@ namespace QSchematic
         explicit Scene(QObject* parent = nullptr);
         ~Scene() override;
 
-        gpds::container to_container() const override;
-        void from_container(const gpds::container& container) override;
+        friend class ::boost::serialization::access;
+        template<class Archive>
+        void save(Archive& ar, const unsigned int version) const;
+        template<class Archive>
+        void load(Archive& ar, const unsigned int version);
+        BOOST_SERIALIZATION_SPLIT_MEMBER()
 
         void setSettings(const Settings& settings);
         void setWireFactory(const std::function<std::shared_ptr<Items::Wire>()>& factory);

@@ -1,28 +1,23 @@
 include(FetchContent)
 
 ########################################################################################################################
-# GPDS
+# Boost
 ########################################################################################################################
-if (QSCHEMATIC_DEPENDENCY_GPDS_DOWNLOAD)
-    FetchContent_Declare(
-        gpds
-        GIT_REPOSITORY https://github.com/simulton/gpds
-        GIT_TAG        ${QSCHEMATIC_DEPENDENCY_GPDS_DOWNLOAD_VERSION}
-    )
-    FetchContent_GetProperties(gpds)
-    if(NOT gpds_POPULATED)
-        FetchContent_Populate(gpds)
-        set(GPDS_BUILD_TESTS    OFF CACHE INTERNAL "")
-        set(GPDS_BUILD_EXAMPLES OFF CACHE INTERNAL "")
-        set(GPDS_FEATURE_SPDLOG OFF CACHE INTERNAL "")
-        add_subdirectory(${gpds_SOURCE_DIR} ${gpds_BINARY_DIR})
-    endif()
+set(BOOST_ROOT "C:/Users/Clement/Documents/Libs/boost_1_85_0")
+set(Boost_USE_STATIC_LIBS ON)
+set(Boost_USE_MULTITHREADED ON)
+set(Boost_USE_STATIC_RUNTIME OFF)
+find_package(
+    Boost ${BOOST_MINIMUM_VERSION}
+    REQUIRED COMPONENTS
+        serialization
+)
+
+if(Boost_FOUND)
+    include_directories("${Boost_INCLUDE_DIRS}/")
+    link_directories(${Boost_LIBRARY_DIRS})
 else()
-    find_package(
-        gpds
-        ${QSCHEMATIC_DEPENDENCY_GPDS_MINIMUM_VERSION}
-        REQUIRED
-    )
+    message(FATAL_ERROR "Boost package not found." )
 endif()
 
 

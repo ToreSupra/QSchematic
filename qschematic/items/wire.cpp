@@ -17,12 +17,16 @@
 #include <QtMath>
 #include <QMenu>
 
+#include <boost/serialization/vector.hpp>
+
 const qreal BOUNDING_RECT_PADDING = 6.0;
 const qreal HANDLE_SIZE = 3.0;
 const qreal WIRE_SHAPE_PADDING = 10;
 const QColor COLOR                     = QColor("#000000");
 const QColor COLOR_HIGHLIGHTED         = QColor("#dc2479");
 const QColor COLOR_SELECTED            = QColor("#0f16af");
+
+BOOST_CLASS_EXPORT_IMPLEMENT(QSchematic::Items::Wire)
 
 using namespace QSchematic::Items;
 
@@ -50,52 +54,48 @@ Wire::~Wire()
     }
 }
 
-gpds::container Wire::to_container() const
+template void Wire::serialize<boost::archive::binary_oarchive>(boost::archive::binary_oarchive&, const unsigned int);
+template void Wire::serialize<boost::archive::binary_iarchive>(boost::archive::binary_iarchive&, const unsigned int);
+template void Wire::serialize<boost::archive::xml_oarchive>(boost::archive::xml_oarchive&, const unsigned int);
+template void Wire::serialize<boost::archive::xml_iarchive>(boost::archive::xml_iarchive&, const unsigned int);
+
+template<class Archive>
+void Wire::save(Archive& ar, const unsigned int version) const
 {
+    Q_UNUSED(version)
+
+    // Item
+    ar & BOOST_SERIALIZATION_BASE_OBJECT_NVP(Item);
+
     // Points
-    gpds::container pointsContainer;
-    for (int i = 0; i < points_count(); i++) {
-        gpds::container pointContainer;
-        pointContainer.add_attribute("index", i);
-        pointContainer.add_value("x", m_points.at(i).x());
-        pointContainer.add_value("y", m_points.at(i).y());
-        pointsContainer.add_value("point", pointContainer);
+    std::vector<int> points_x(points_count());
+    std::vector<int> points_y(points_count());
+    for (int i = 0; i < points_count(); ++i) {
+        points_x[i] = m_points.at(i).x();
+        points_y[i] = m_points.at(i).y();
     }
-
-    // Root
-    gpds::container rootContainer;
-    addItemTypeIdToContainer(rootContainer);
-    rootContainer.add_value("item", Item::to_container());
-    rootContainer.add_value("points", pointsContainer);
-
-    return rootContainer;
+    ar & boost::serialization::make_nvp("points_x", points_x);
+    ar & boost::serialization::make_nvp("points_y", points_y);
 }
 
-void Wire::from_container(const gpds::container& container)
+template<class Archive>
+void Wire::load(Archive& ar, const unsigned int version)
 {
-    // Root
-    Item::from_container(*container.get_value<gpds::container*>("item").value());
+    Q_UNUSED(version)
+
+    // Item
+    ar & BOOST_SERIALIZATION_BASE_OBJECT_NVP(Item);
 
     // Points
-    const gpds::container* pointsContainer = container.get_value<gpds::container*>("points").value_or(nullptr);
-    if (pointsContainer) {
-        auto points = pointsContainer->get_values<gpds::container*>("point");
-        // Sort points by index
-        std::sort(points.begin(), points.end(), [](gpds::container* a, gpds::container* b) {
-            std::optional<int> index1 = a->get_attribute<int>("index");
-            std::optional<int> index2 = b->get_attribute<int>("index");
-            if (!index1.has_value() || !index2.has_value()) {
-                qCritical("Wire::from_container(): Point has no index.");
-                return false;
-            }
-            return index1.value() < index2.value();
-        });
-        for (const gpds::container* pointContainer : points ) {
-            m_points.append(point(pointContainer->get_value<double>("x").value_or(0),
-                                  pointContainer->get_value<double>("y").value_or(0)));
-        }
+    std::vector<int> points_x;
+    std::vector<int> points_y;
+    ar & boost::serialization::make_nvp("points_x", points_x);
+    ar & boost::serialization::make_nvp("points_y", points_y);
+    for (int i = 0; i < points_x.size(); ++i) {
+        m_points.append(point(points_x.at(i), points_y.at(i)));
     }
 
+    // Update
     update();
 }
 

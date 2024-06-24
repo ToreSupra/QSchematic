@@ -6,9 +6,13 @@
 #include <QPen>
 #include <QBrush>
 
+#include <boost/serialization/nvp.hpp>
+
 const QColor COLOR_LABEL             = QColor("#000000");
 const QColor COLOR_LABEL_HIGHLIGHTED = QColor("#dc2479");
 const qreal LABEL_TEXT_PADDING = 2;
+
+BOOST_CLASS_EXPORT_IMPLEMENT(QSchematic::Items::Label)
 
 using namespace QSchematic::Items;
 
@@ -19,39 +23,40 @@ Label::Label(int type, QGraphicsItem* parent) :
     setSnapToGrid(false);
 }
 
-gpds::container Label::to_container() const
+template void Label::serialize<boost::archive::binary_oarchive>(boost::archive::binary_oarchive& ar, const unsigned int version);
+template void Label::serialize<boost::archive::binary_iarchive>(boost::archive::binary_iarchive& ar, const unsigned int version);
+template void Label::serialize<boost::archive::xml_oarchive>(boost::archive::xml_oarchive& ar, const unsigned int version);
+template void Label::serialize<boost::archive::xml_iarchive>(boost::archive::xml_iarchive& ar, const unsigned int version);
+
+template<class Archive>
+void Label::save(Archive& ar, const unsigned int version) const
 {
-    // Connection point
-    gpds::container connectionPoint;
-    connectionPoint.add_attribute("enabled", ( _hasConnectionPoint ? "true" : "false" ));
-    connectionPoint.add_value("x", _connectionPoint.x());
-    connectionPoint.add_value("y", _connectionPoint.y());
+    Q_UNUSED(version)
 
-    // Root
-    gpds::container root;
-    addItemTypeIdToContainer(root);
-    root.add_value("item", Item::to_container());
-    root.add_value("text", text().toStdString());
-    root.add_value("connection_point", connectionPoint);
-
-    return root;
+    ar & BOOST_SERIALIZATION_BASE_OBJECT_NVP(Item);
+    std::string text = _text.toStdString();
+    ar & boost::serialization::make_nvp("text", text);
+    ar & boost::serialization::make_nvp("hasConnectionPoint", _hasConnectionPoint);
+    qreal x = _connectionPoint.x();
+    ar & boost::serialization::make_nvp("connectionPoint_x", x);
+    qreal y = _connectionPoint.y();
+    ar & boost::serialization::make_nvp("connectionPoint_y", y);
 }
 
-void Label::from_container(const gpds::container& container)
+template<class Archive>
+void Label::load(Archive& ar, const unsigned int version)
 {
-    Item::from_container(*container.get_value<gpds::container*>("item").value());
-    setText(QString::fromStdString(container.get_value<std::string>("text").value_or("")));
+    Q_UNUSED(version)
 
-    // Connection point
-    const gpds::container* connectionPointContainer = container.get_value<gpds::container*>("connection_point").value_or(nullptr);
-    if (connectionPointContainer) {
-        auto attributeString = connectionPointContainer->get_attribute<std::string>( "enabled" );
-        if ( attributeString.has_value() ) {
-            _hasConnectionPoint = ( attributeString.value() == "true" );
-        }
-        _connectionPoint.setX(connectionPointContainer->get_value<double>("x").value_or(0));
-        _connectionPoint.setY(connectionPointContainer->get_value<double>("y").value_or(0));
-    }
+    ar & BOOST_SERIALIZATION_BASE_OBJECT_NVP(Item);
+    std::string text;
+    ar & boost::serialization::make_nvp("text", text);
+    setText(QString::fromStdString(text));
+    ar & boost::serialization::make_nvp("hasConnectionPoint", _hasConnectionPoint);
+    qreal x, y;
+    ar & boost::serialization::make_nvp("connectionPoint_x", x);
+    ar & boost::serialization::make_nvp("connectionPoint_y", y);
+    setConnectionPoint(QPointF(x, y));
 }
 
 std::shared_ptr<Item> Label::deepCopy() const

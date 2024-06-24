@@ -6,6 +6,8 @@
 #include <QPainter>
 #include <QVector2D>
 
+#include <boost/serialization/nvp.hpp>
+
 const qreal BOUNDING_RECT_PADDING = 6.0;
 const qreal HANDLE_SIZE           = 3.0;
 const qreal WIRE_SHAPE_PADDING    = 10;
@@ -14,6 +16,8 @@ const QColor COLOR                = QColor("#000000");
 const QColor COLOR_HIGHLIGHTED    = QColor("#dc2479");
 const QColor COLOR_SELECTED       = QColor("#0f16af");
 
+BOOST_CLASS_EXPORT_IMPLEMENT(QSchematic::Items::WireRoundedCorners)
+
 using namespace QSchematic::Items;
 
 WireRoundedCorners::WireRoundedCorners(int type, QGraphicsItem* parent) :
@@ -21,20 +25,12 @@ WireRoundedCorners::WireRoundedCorners(int type, QGraphicsItem* parent) :
 {
 }
 
-gpds::container WireRoundedCorners::to_container() const
+template<class Archive>
+void WireRoundedCorners::serialize(Archive& ar, const unsigned int version)
 {
-    // Root
-    gpds::container root;
-    root.add_value("wire", Wire::to_container());
+    Q_UNUSED(version)
 
-    return root;
-}
-
-void WireRoundedCorners::from_container(const gpds::container& container)
-{
-    // Root
-    auto opt = container.get_value<gpds::container*>("wire");
-    Wire::from_container(opt ? *opt.value() : gpds::container());
+    ar & BOOST_SERIALIZATION_BASE_OBJECT_NVP(Wire);
 }
 
 void WireRoundedCorners::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget)

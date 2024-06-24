@@ -11,11 +11,16 @@
 #include <QVector2D>
 #include <QGraphicsSceneHoverEvent>
 
+#include <boost/serialization/nvp.hpp>
+#include <boost/serialization/shared_ptr.hpp>
+
 const qreal SIZE               = 1;
 const QColor COLOR_BODY_FILL   = QColor(Qt::green);
 const QColor COLOR_BODY_BORDER = QColor(Qt::black);
 const qreal PEN_WIDTH          = 1.5;
 const int TEXT_PADDING         = 15;
+
+BOOST_CLASS_EXPORT_IMPLEMENT(QSchematic::Items::Connector)
 
 using namespace QSchematic::Items;
 
@@ -57,27 +62,34 @@ Connector::~Connector()
     disconnect_all_wires();
 }
 
-gpds::container Connector::to_container() const
-{
-    // Root
-    gpds::container root;
-    addItemTypeIdToContainer(root);
-    root.add_value("item", Item::to_container());
-    root.add_value("snap_policy", snapPolicy());
-    root.add_value("force_text_direction", forceTextDirection());
-    root.add_value("text_direction", textDirection());
-    root.add_value("label", _label->to_container());
+template void Connector::serialize<boost::archive::binary_oarchive>(boost::archive::binary_oarchive&, const unsigned int);
+template void Connector::serialize<boost::archive::binary_iarchive>(boost::archive::binary_iarchive&, const unsigned int);
+template void Connector::serialize<boost::archive::xml_oarchive>(boost::archive::xml_oarchive&, const unsigned int);
+template void Connector::serialize<boost::archive::xml_iarchive>(boost::archive::xml_iarchive&, const unsigned int);
 
-    return root;
+template<class Archive>
+void Connector::save(Archive& ar, const unsigned int version) const
+{
+    Q_UNUSED(version)
+
+    ar & BOOST_SERIALIZATION_BASE_OBJECT_NVP(Item);
+    ar & boost::serialization::make_nvp("snap_policy", _snapPolicy);
+    ar & boost::serialization::make_nvp("force_text_direction", _forceTextDirection);
+    ar & boost::serialization::make_nvp("text_direction", _textDirection);
+    ar & boost::serialization::make_nvp("label", _label);
 }
 
-void Connector::from_container(const gpds::container& container)
+template<class Archive>
+void Connector::load(Archive& ar, const unsigned int version)
 {
-    Item::from_container(*container.get_value<gpds::container*>("item").value());
-    setSnapPolicy(static_cast<SnapPolicy>(container.get_value<int>("snap_policy").value_or(Anywhere)));
-    setForceTextDirection(container.get_value<bool>("force_text_direction").value_or(false));
-    _textDirection = static_cast<TextDirection>(container.get_value<int>("text_direction").value_or(static_cast<int>(TextDirection::LeftToRight)));
-    _label->from_container(*container.get_value<gpds::container*>("label").value());
+    Q_UNUSED(version)
+
+    ar & BOOST_SERIALIZATION_BASE_OBJECT_NVP(Item);
+    ar & boost::serialization::make_nvp("snap_policy", _snapPolicy);
+    ar & boost::serialization::make_nvp("force_text_direction", _forceTextDirection);
+    ar & boost::serialization::make_nvp("text_direction", _textDirection);
+    ar & boost::serialization::make_nvp("label", _label);
+    _label->setParentItem(this);
 }
 
 std::shared_ptr<Item> Connector::deepCopy() const

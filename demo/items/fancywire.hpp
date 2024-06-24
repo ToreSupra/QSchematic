@@ -11,11 +11,14 @@ public:
     explicit FancyWire(QGraphicsItem* parent = nullptr);
     ~FancyWire() override = default;
 
-    gpds::container to_container() const override;
-    void from_container(const gpds::container& container) override;
+    friend class boost::serialization::access;
+    template <class Archive>
+    void serialize(Archive& ar, const unsigned int version);
     std::shared_ptr<QSchematic::Items::Item> deepCopy() const override;
     void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
 protected:
     void copyAttributes(FancyWire& dest) const;
 };
+
+BOOST_CLASS_EXPORT_KEY(FancyWire)

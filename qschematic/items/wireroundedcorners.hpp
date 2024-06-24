@@ -15,8 +15,9 @@ namespace QSchematic::Items
         WireRoundedCorners(int type = Item::WireRoundedCornersType, QGraphicsItem* parent = nullptr);
         ~WireRoundedCorners() override = default;
 
-        gpds::container to_container() const override;
-        void from_container(const gpds::container& container) override;
+        friend class ::boost::serialization::access;
+        template<class Archive>
+        void serialize(Archive& ar, const unsigned int version);
         void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
     private:
@@ -30,3 +31,5 @@ namespace QSchematic::Items
     };
 
 }
+
+BOOST_CLASS_EXPORT_KEY(QSchematic::Items::WireRoundedCorners)

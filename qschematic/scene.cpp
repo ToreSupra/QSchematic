@@ -13,13 +13,20 @@
 #include "commands/item_move.hpp"
 #include "commands/item_add.hpp"
 #include "commands/item_remove.hpp"
-#include "items/itemfactory.hpp"
 #include "items/item.hpp"
 #include "items/itemmimedata.hpp"
 #include "items/node.hpp"
 #include "items/label.hpp"
 #include "items/widget.hpp"
 #include "utils/itemscontainerutils.hpp"
+
+#include <boost/serialization/vector.hpp>
+#include <boost/serialization/shared_ptr.hpp>
+#include <boost/serialization/map.hpp>
+#include <boost/archive/binary_iarchive.hpp>
+#include <boost/archive/binary_oarchive.hpp>
+#include <boost/archive/xml_iarchive.hpp>
+#include <boost/archive/xml_oarchive.hpp>
 
 using namespace QSchematic;
 
@@ -72,93 +79,119 @@ Scene::~Scene()
     clear();
 }
 
-gpds::container
-Scene::to_container() const
+template void Scene::serialize<boost::archive::binary_oarchive>(boost::archive::binary_oarchive& ar, const unsigned int version);
+template void Scene::serialize<boost::archive::binary_iarchive>(boost::archive::binary_iarchive& ar, const unsigned int version);
+template void Scene::serialize<boost::archive::xml_oarchive>(boost::archive::xml_oarchive& ar, const unsigned int version);
+template void Scene::serialize<boost::archive::xml_iarchive>(boost::archive::xml_iarchive& ar, const unsigned int version);
+
+template<class Archive>
+void Scene::save(Archive& ar, const unsigned int version) const
 {
     // Scene
-    gpds::container scene;
     {
         // Rect
-        gpds::container r;
         const QRect& rect = sceneRect().toRect();
-        r.add_value("x", rect.x());
-        r.add_value("y", rect.y());
-        r.add_value("width", rect.width());
-        r.add_value("height", rect.height());
-        scene.add_value("rect", r);
+        int x = rect.x();
+        ar& boost::serialization::make_nvp("scene_x", x);
+        int y = rect.y();
+        ar& boost::serialization::make_nvp("scene_y", y);
+        int width = rect.width();
+        ar& boost::serialization::make_nvp("scene_width", width);
+        int height = rect.height();
+        ar& boost::serialization::make_nvp("scene_height", height);
     }
 
     // Nodes
-    gpds::container nodesList;
-    for (const auto& node : nodes())
-        nodesList.add_value("node", node->to_container());
+    auto no = nodes();
+    std::vector<std::shared_ptr<Items::Item>> no_vector(no.begin(), no.end());
+    ar& boost::serialization::make_nvp("nodes", no_vector);
 
     // Nets
-    gpds::container netsList;
-    for (const auto& net : m_wire_manager->nets()) {
-
+    auto tmp = m_wire_manager->nets();
+    std::vector<std::shared_ptr<Items::WireNet>> nets;
+    std::map<std::shared_ptr<Items::WireNet>, std::vector<std::shared_ptr<Items::Wire>>> nets_wire;
+    nets.reserve(tmp.size());
+    for (const auto& net : tmp) {
         // Make sure it's a WireNet
         auto wire_net = std::dynamic_pointer_cast<Items::WireNet>(net);
-        if (!wire_net)
-            continue;
-
-        netsList.add_value("net", wire_net->to_container());
+        if (wire_net != nullptr) {
+            nets.push_back(wire_net);
+            // Wires in the net
+            auto wires = wire_net->wires();
+            std::vector<std::shared_ptr<Items::Wire>> wires_v;
+            wires_v.reserve(wires.size());
+            for (const auto& wire : wires) {
+                auto wire_item = std::dynamic_pointer_cast<Items::Wire>(wire);
+                if (wire_item != nullptr) {
+                    wires_v.push_back(wire_item);
+                }
+            }
+            nets_wire[wire_net] = wires_v;
+        }
     }
-
-    // Root
-    gpds::container c;
-    c.add_value("scene", scene);
-    c.add_value("nodes", nodesList);
-    c.add_value("nets", netsList);
-
-    return c;
+    //int nets_s = nets.size();
+    //ar & boost::serialization::make_nvp("nets_size", nets_s);
+    ar& boost::serialization::make_nvp("nets", nets);
+    ar& boost::serialization::make_nvp("nets_wire", nets_wire);
 }
 
-void
-Scene::from_container(const gpds::container& container)
+template<class Archive>
+void QSchematic::Scene::load(Archive& ar, const unsigned int version)
 {
     // Scene
-    if (const gpds::container* sceneContainer = container.get_value<gpds::container*>("scene").value_or(nullptr); sceneContainer) {
+    {
         // Rect
-        const gpds::container* rectContainer = sceneContainer->get_value<gpds::container*>("rect").value_or(nullptr);
-        if ( rectContainer ) {
-            QRect rect;
-            rect.setX(rectContainer->get_value<int>("x").value_or(0));
-            rect.setY(rectContainer->get_value<int>("y").value_or(0));
-            rect.setWidth(rectContainer->get_value<int>("width").value_or(0));
-            rect.setHeight(rectContainer->get_value<int>("height").value_or(0));
+        QRect rect;
+        int x;
+        ar& boost::serialization::make_nvp("scene_x", x);
+        rect.setX(x);
+        int y;
+        ar& boost::serialization::make_nvp("scene_y", y);
+        rect.setY(y);
+        int width;
+        ar& boost::serialization::make_nvp("scene_width", width);
+        rect.setWidth(width);
+        int height;
+        ar& boost::serialization::make_nvp("scene_height", height);
+        rect.setHeight(height);
 
-            setSceneRect( rect );
-        }
+        setSceneRect(rect);
     }
 
     // Nodes
-    if (const gpds::container* nodesContainer = container.get_value<gpds::container*>("nodes").value_or(nullptr); nodesContainer) {
-        for (const auto& nodeContainer : nodesContainer->get_values<gpds::container*>("node")) {
-            if (!nodeContainer)
-                continue;
-
-            auto node = Items::Factory::instance().from_container(*nodeContainer);
-            if (!node)
-                continue;
-            node->from_container(*nodeContainer);
+    {
+        std::vector<std::shared_ptr<Items::Item>> nodes;
+        ar& boost::serialization::make_nvp("nodes", nodes);
+        for (const auto& node : nodes) {
             addItem(node);
         }
     }
 
     // Nets
-    if (const gpds::container* netsContainer = container.get_value<gpds::container*>("nets").value_or(nullptr); netsContainer) {
-        for (const gpds::container* netContainer : netsContainer->get_values<gpds::container*>("net")) {
-            if (!netContainer)
-                continue;
-
-            auto net = std::make_shared<Items::WireNet>();
+    {
+        std::vector<std::shared_ptr<Items::WireNet>> nets;
+        /*int nets_s;
+        ar & boost::serialization::make_nvp("nets_size", nets_s);
+        nets.reserve(nets_s);
+        for (int i = 0; i < nets_s; i++) {
+            auto ptr = std::make_shared<Items::WireNet>();
+            nets.push_back(ptr);
+            ptr->setScene(this);
+            ptr->set_manager(wire_manager().get());
+        }*/
+        ar& boost::serialization::make_nvp("nets", nets);
+        std::map<std::shared_ptr<Items::WireNet>, std::vector<std::shared_ptr<Items::Wire>>> nets_wire;
+        ar& boost::serialization::make_nvp("nets_wire", nets_wire);
+        for (auto& net : nets) {
             net->setScene(this);
             net->set_manager(wire_manager().get());
-            net->from_container( *netContainer );
-
+            for (auto& wire : nets_wire[net]) {
+                net->addWire(wire);
+                this->addItem(wire);
+            }
             m_wire_manager->add_net(net);
         }
+
     }
 
     // Attach the wires to the nodes

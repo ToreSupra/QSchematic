@@ -11,6 +11,8 @@
 #include <QVector2D>
 #include <QInputDialog>
 
+#include <boost/serialization/export.hpp>
+
 #define SIZE (_settings.gridSize/3)
 
 FancyWire::FancyWire(QGraphicsItem* parent) :
@@ -37,19 +39,14 @@ FancyWire::FancyWire(QGraphicsItem* parent) :
     setZValue(1);
 }
 
-gpds::container FancyWire::to_container() const
-{
-    // Root
-    gpds::container root;
-    addItemTypeIdToContainer(root);
-    root.add_value("wire", QSchematic::Items::Wire::to_container());
+BOOST_CLASS_EXPORT_IMPLEMENT(FancyWire)
 
-    return root;
-}
-
-void FancyWire::from_container(const gpds::container& container)
+template<class Archive>
+void FancyWire::serialize(Archive& ar, const unsigned int version)
 {
-    QSchematic::Items::Wire::from_container(*container.get_value<gpds::container*>("wire").value());
+    Q_UNUSED(version)
+
+    ar & BOOST_SERIALIZATION_BASE_OBJECT_NVP(QSchematic::Items::WireRoundedCorners);;
 }
 
 std::shared_ptr<QSchematic::Items::Item> FancyWire::deepCopy() const

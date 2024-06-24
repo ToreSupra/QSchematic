@@ -1,5 +1,4 @@
 #include "node.hpp"
-#include "itemfactory.hpp"
 #include "../utils.hpp"
 #include "../scene.hpp"
 
@@ -8,10 +7,15 @@
 #include <QPainter>
 #include <QtMath>
 
+#include <boost/serialization/shared_ptr.hpp>
+#include <boost/serialization/vector.hpp>
+
 const QColor COLOR_HIGHLIGHTED = QColor(Qt::blue);
 const QColor COLOR_BODY_FILL   = QColor(Qt::green);
 const QColor COLOR_BODY_BORDER = QColor(Qt::black);
 const qreal PEN_WIDTH          = 1.5;
+
+BOOST_CLASS_EXPORT_IMPLEMENT(QSchematic::Items::Node)
 
 using namespace QSchematic::Items;
 
@@ -33,67 +37,82 @@ Node::~Node()
     dissociate_items(_specialConnectors);
 }
 
-gpds::container Node::to_container() const
+template void Node::serialize<boost::archive::binary_oarchive>(boost::archive::binary_oarchive& ar, const unsigned int version);
+template void Node::serialize<boost::archive::binary_iarchive>(boost::archive::binary_iarchive& ar, const unsigned int version);
+template void Node::serialize<boost::archive::xml_oarchive>(boost::archive::xml_oarchive& ar, const unsigned int version);
+template void Node::serialize<boost::archive::xml_iarchive>(boost::archive::xml_iarchive& ar, const unsigned int version);
+
+template<class Archive>
+void Node::save(Archive& ar, const unsigned int version) const
 {
+    Q_UNUSED(version)
+
     // Connectors configuration
-    gpds::container connectorsConfigurationContainer;
-    connectorsConfigurationContainer.add_value("movable", connectorsMovable());
-    connectorsConfigurationContainer.add_value("snap_policy", static_cast<int>(connectorsSnapPolicy()));
-    connectorsConfigurationContainer.add_value("snap_to_grid", connectorsSnapToGrid());
+    ar& boost::serialization::make_nvp("connectors_movable", _connectorsMovable);
+    int sp = static_cast<int>(connectorsSnapPolicy());
+    ar& boost::serialization::make_nvp("connectors_snap_policy", sp);
+    bool sg = connectorsSnapToGrid();
+    ar& boost::serialization::make_nvp("connectors_snap_to_grid", sg);
 
     // Connectors
-    gpds::container connectorsContainer;
-    for (const auto& connector : connectors()) {
-        if ( _specialConnectors.contains( connector ) ) {
-            continue;
+    auto cs = connectors();
+    std::vector<std::shared_ptr<Connector>> notSpecialConnectors;
+    notSpecialConnectors.reserve(cs.size());
+    for (const auto& connector : cs) {
+        if (!_specialConnectors.contains(connector)) {
+            notSpecialConnectors.push_back(connector);
         }
-
-        connectorsContainer.add_value("connector", connector->to_container());
     }
+    ar & boost::serialization::make_nvp("connectors", notSpecialConnectors);
 
     // Root
-    gpds::container root;
-    addItemTypeIdToContainer(root);
-    root.add_value("rect_item", RectItem::to_container());
-    root.add_value("width", size().width());
-    root.add_value("height", size().height());
-    root.add_value("allow_mouse_resize", allowMouseResize());
-    root.add_value("allow_mouse_rotate", allowMouseRotate());
-    root.add_value("connectors_configuration", connectorsConfigurationContainer);
-    root.add_value("connectors", connectorsContainer);
-
-    return root;
+    ar & BOOST_SERIALIZATION_BASE_OBJECT_NVP(RectItem);
+    qreal w, h;
+    w = size().width();
+    ar& boost::serialization::make_nvp("width", w);
+    h = size().height();
+    ar& boost::serialization::make_nvp("height", h);
+    bool amr = allowMouseResize();
+    ar& boost::serialization::make_nvp("allow_mouse_resize", amr);
+    bool amrot = allowMouseRotate();
+    ar& boost::serialization::make_nvp("allow_mouse_rotate", amrot);
 }
 
-void Node::from_container(const gpds::container& container)
+template<class Archive>
+void Node::load(Archive& ar, const unsigned int version)
 {
-    // Root
-    RectItem::from_container(*container.get_value<gpds::container*>("rect_item").value());
-    setSize(container.get_value<double>("width").value_or(0), container.get_value<double>("height").value_or(0));
-    setAllowMouseResize(container.get_value<bool>("allow_mouse_resize").value_or(true));
-    setAllowMouseRotate(container.get_value<bool>("allow_mouse_rotate").value_or(true));
+    Q_UNUSED(version)
 
     // Connectors configuration
-    const gpds::container* connectorsConfigurationContainer = container.get_value<gpds::container*>("connectors_configuration").value_or(nullptr);
-    if (connectorsConfigurationContainer) {
-        setConnectorsMovable(connectorsConfigurationContainer->get_value<bool>("movable").value_or(true));
-        setConnectorsSnapPolicy(static_cast<Connector::SnapPolicy>( connectorsConfigurationContainer->get_value<int>("snap_policy").value_or(Connector::SnapPolicy::Anywhere)));
-        setConnectorsSnapToGrid(connectorsConfigurationContainer->get_value<bool>("snap_to_grid").value_or(true));
-    }
+    bool connectorsMovable;
+    Connector::SnapPolicy connectorsSnapPolicy;
+    bool connectorsSnapToGrid;
+    ar & boost::serialization::make_nvp("connectors_movable", connectorsMovable);
+    ar & boost::serialization::make_nvp("connectors_snap_policy", connectorsSnapPolicy);
+    ar & boost::serialization::make_nvp("connectors_snap_to_grid", connectorsSnapToGrid);
+    setConnectorsMovable(connectorsMovable);
+    setConnectorsSnapPolicy(connectorsSnapPolicy);
+    setConnectorsSnapToGrid(connectorsSnapToGrid);
 
     // Connectors
-    const gpds::container* connectorsContainer = container.get_value<gpds::container*>("connectors").value_or(nullptr);
-    if (connectorsContainer) {
-        clearConnectors();
-        for (const gpds::container* connectorContainer : connectorsContainer->get_values<gpds::container*>("connector")) {
-            auto connector = std::dynamic_pointer_cast<Connector>(Items::Factory::instance().from_container(*connectorContainer));
-            if (!connector) {
-                continue;
-            }
-            connector->from_container(*connectorContainer);
-            addConnector(connector);
-        }
+    clearConnectors();
+    std::vector<std::shared_ptr<Connector>> notSpecialConnectors;
+    ar & boost::serialization::make_nvp("connectors", notSpecialConnectors);
+    for (const auto& connector : notSpecialConnectors) {
+        addConnector(connector);
     }
+
+    // Root
+    ar & BOOST_SERIALIZATION_BASE_OBJECT_NVP(RectItem);
+    qreal width, height;
+    ar & boost::serialization::make_nvp("width", width);
+    ar & boost::serialization::make_nvp("height", height);
+    setSize(width, height);
+    bool allowMouseResize, allowMouseRotate;
+    ar & boost::serialization::make_nvp("allow_mouse_resize", allowMouseResize);
+    setAllowMouseResize(allowMouseResize);
+    ar & boost::serialization::make_nvp("allow_mouse_rotate", allowMouseRotate);
+    setAllowMouseRotate(allowMouseRotate);
 }
 
 std::shared_ptr<Item> Node::deepCopy() const

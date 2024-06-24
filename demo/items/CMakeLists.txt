@@ -3,8 +3,6 @@ add_subdirectory(popup)
 target_sources(
     ${TARGET}
     PRIVATE
-        customitemfactory.cpp
-        customitemfactory.hpp
         fancywire.cpp
         fancywire.hpp
         flowend.cpp

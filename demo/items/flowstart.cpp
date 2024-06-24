@@ -7,6 +7,9 @@
 #include <QPainter>
 #include <QGraphicsDropShadowEffect>
 
+#include <boost/serialization/nvp.hpp>
+#include <boost/serialization/export.hpp>
+
 const QColor COLOR_BODY_FILL   = QColor( QStringLiteral( "#e0e0e0" ) );
 const QColor COLOR_BODY_BORDER = QColor(Qt::black);
 const QColor SHADOW_COLOR      = QColor(63, 63, 63, 100);
@@ -49,19 +52,14 @@ FlowStart::FlowStart() :
     setAllowMouseResize(false);
 }
 
-gpds::container FlowStart::to_container() const
-{
-    // Root
-    gpds::container root;
-    addItemTypeIdToContainer(root);
-    root.add_value("node", QSchematic::Items::Node::to_container());
+BOOST_CLASS_EXPORT_IMPLEMENT(FlowStart)
 
-    return root;
-}
-
-void FlowStart::from_container(const gpds::container& container)
+template <class Archive>
+void FlowStart::serialize(Archive& ar, const unsigned int version)
 {
-    QSchematic::Items::Node::from_container(*container.get_value<gpds::container*>("node").value());
+    Q_UNUSED(version);
+
+    ar & BOOST_SERIALIZATION_BASE_OBJECT_NVP(Operation);
 }
 
 std::shared_ptr<QSchematic::Items::Item> FlowStart::deepCopy() const

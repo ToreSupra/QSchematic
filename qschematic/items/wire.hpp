@@ -27,8 +27,12 @@ namespace QSchematic::Items
         ~Wire() override;
         void update() override;
 
-        gpds::container to_container() const override;
-        void from_container(const gpds::container& container) override;
+        friend class ::boost::serialization::access;
+        template<class Archive>
+        void save(Archive& ar, const unsigned int version) const;
+        template<class Archive>
+        void load(Archive& ar, const unsigned int version);
+        BOOST_SERIALIZATION_SPLIT_MEMBER()
         std::shared_ptr<Item> deepCopy() const override;
         QRectF boundingRect() const override;
         QPainterPath shape() const override;
@@ -82,3 +86,5 @@ namespace QSchematic::Items
     };
 
 }
+
+BOOST_CLASS_EXPORT_KEY(QSchematic::Items::Wire)

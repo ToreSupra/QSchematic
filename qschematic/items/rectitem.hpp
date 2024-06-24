@@ -5,6 +5,8 @@
 
 #include <QList>
 
+#include <boost/serialization/export.hpp>
+
 class QGraphicsSceneMouseEvent;
 class QGraphicsSceneHoverEvent;
 
@@ -33,8 +35,12 @@ namespace QSchematic::Items
 
         ~RectItem() override = default;
 
-        gpds::container to_container() const override;
-        void from_container(const gpds::container& container) override;
+        friend class ::boost::serialization::access;
+        template<class Archive>
+        void save(Archive& ar, const unsigned int version) const;
+        template<class Archive>
+        void load(Archive& ar, const unsigned int version);
+        BOOST_SERIALIZATION_SPLIT_MEMBER()
         std::shared_ptr<Item> deepCopy() const override;
 
         Mode mode() const;
@@ -89,4 +95,15 @@ namespace QSchematic::Items
         bool _allowMouseRotate;
     };
 
+}
+
+BOOST_CLASS_EXPORT_KEY(QSchematic::Items::RectItem)
+
+namespace boost {
+    namespace serialization {
+        template<class Archive>
+        inline void save_construct_data(Archive& ar, const QSchematic::Items::RectItem* t, const unsigned int file_version);
+        template<class Archive>
+        inline void load_construct_data(Archive& ar, QSchematic::Items::RectItem* t, const unsigned int file_version);
+    }
 }

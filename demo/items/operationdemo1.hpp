@@ -11,10 +11,13 @@ public:
     explicit OperationDemo1(QGraphicsItem* parent = nullptr);
     ~OperationDemo1() override = default;
 
-    gpds::container to_container() const override;
-    void from_container(const gpds::container& container) override;
+    friend class boost::serialization::access;
+    template<class Archive>
+    void serialize(Archive& ar, const unsigned int version);
     std::shared_ptr<QSchematic::Items::Item> deepCopy() const override;
 
 private:
     void copyAttributes(OperationDemo1& dest) const;
 };
+
+BOOST_CLASS_EXPORT_KEY(OperationDemo1)

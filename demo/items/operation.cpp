@@ -15,6 +15,9 @@
 #include <QInputDialog>
 #include <QGraphicsDropShadowEffect>
 
+#include <boost/serialization/nvp.hpp>
+#include <boost/serialization/shared_ptr.hpp>
+
 const QColor COLOR_BODY_FILL   = QColor( QStringLiteral( "#e0e0e0" ) );
 const QColor COLOR_BODY_BORDER = QColor(Qt::black);
 const QColor SHADOW_COLOR      = QColor(63, 63, 63, 100);
@@ -62,22 +65,25 @@ Operation::~Operation()
     dissociate_item(_label);
 }
 
-gpds::container Operation::to_container() const
-{
-    // Root
-    gpds::container root;
-    addItemTypeIdToContainer(root);
-    root.add_value("node", QSchematic::Items::Node::to_container());
-    root.add_value("label", _label->to_container());
+BOOST_CLASS_EXPORT_IMPLEMENT(Operation)
 
-    return root;
+template<class Archive>
+void Operation::save(Archive& ar, const unsigned int version) const
+{
+    Q_UNUSED(version)
+
+    ar & BOOST_SERIALIZATION_BASE_OBJECT_NVP(Node);
+    ar & boost::serialization::make_nvp("label", _label);
 }
 
-void Operation::from_container(const gpds::container& container)
+template<class Archive>
+void Operation::load(Archive& ar, const unsigned int version)
 {
-    // Root
-    QSchematic::Items::Node::from_container(*container.get_value<gpds::container*>("node").value());
-    _label->from_container(*container.get_value<gpds::container*>("label").value());
+    Q_UNUSED(version)
+
+    ar & BOOST_SERIALIZATION_BASE_OBJECT_NVP(Node);
+    ar & boost::serialization::make_nvp("label", _label);
+    _label->setParentItem(this);
 }
 
 std::unique_ptr<QWidget> Operation::popup() const

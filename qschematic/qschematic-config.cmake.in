@@ -4,9 +4,6 @@ include(CMakeFindDependencyMacro)
 # Include dependencies                                                                                                 #
 ########################################################################################################################
 
-set(QSCHEMATIC_DEPENDENCY_GPDS_DOWNLOAD @QSCHEMATIC_DEPENDENCY_GPDS_DOWNLOAD@)
-set(QSCHEMATIC_DEPENDENCY_GPDS_MINIMUM_VERSION @QSCHEMATIC_DEPENDENCY_GPDS_MINIMUM_VERSION@)
-
 # Qt
 find_dependency(
     Qt6
@@ -23,15 +20,6 @@ if (NOT Qt6_FOUND)
             Core
             Gui
             Widgets
-    )
-endif()
-
-# GPDS
-if (NOT QSCHEMATIC_DEPENDENCY_GPDS_DOWNLOAD)
-    find_dependency(
-        gpds
-        ${QSCHEMATIC_DEPENDENCY_GPDS_MINIMUM_VERSION}
-        REQUIRED
     )
 endif()
 

@@ -46,6 +46,7 @@ public:
     bool save();
     bool load();
     bool load(const QString& filepath);
+    bool loadXml(const QString& filepath);
     void createActions();
     void demo();
 
@@ -61,7 +62,9 @@ private:
     QUndoView* _undoView = nullptr;
     ::Netlist::Widget* _netlistViewerWidget = nullptr;
     QAction* _actionOpen = nullptr;
+    QAction* _actionOpenXML = nullptr;
     QAction* _actionSave = nullptr;
+    QAction* _actionSaveXML = nullptr;
     QAction* _actionPrint = nullptr;
     QAction* _actionUndo = nullptr;
     QAction* _actionRedo = nullptr;

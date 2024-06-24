@@ -16,10 +16,8 @@ endif()
 option(QSCHEMATIC_BUILD_STATIC "Whether to build a static library" ON)
 option(QSCHEMATIC_BUILD_SHARED "Whether to build a shared library" ${OPTION_BUILD_SHARED_DEFAULT})
 option(QSCHEMATIC_BUILD_DEMO "Whether to build the demo project" ON)
-option(QSCHEMATIC_DEPENDENCY_GPDS_DOWNLOAD "Whether to pull the GPDS dependency via FetchContent" ON)
 
 # User settings
-set(QSCHEMATIC_DEPENDENCY_GPDS_TARGET "gpds::gpds-static" CACHE STRING "The CMake target of the GPDS library to use")
 set(CMAKE_DEBUG_POSTFIX d)
 
 # When using MSVC, only allow enabling either static or shared libs but not both to prevent name conflicts on the resulting *.LIB targets
@@ -36,8 +34,7 @@ if (NOT QSCHEMATIC_BUILD_STATIC)
 endif()
 
 # Project requirements
-set(QSCHEMATIC_DEPENDENCY_GPDS_MINIMUM_VERSION  "1.8.4")
-set(QSCHEMATIC_DEPENDENCY_GPDS_DOWNLOAD_VERSION "1.8.4")
+set(BOOST_MINIMUM_VERSION  "1.85.0")
 
 # Include the library
 add_subdirectory(qschematic)
@@ -59,9 +56,8 @@ message(STATUS "    Shared     : " ${QSCHEMATIC_BUILD_SHARED})
 message(STATUS "    Demo       : " ${QSCHEMATIC_BUILD_DEMO})
 message(STATUS "")
 message(STATUS "  Dependencies")
-message(STATUS "    GPDS")
-message(STATUS "      Download : " ${QSCHEMATIC_DEPENDENCY_GPDS_DOWNLOAD})
-message(STATUS "      Target   : " ${QSCHEMATIC_DEPENDENCY_GPDS_TARGET})
+message(STATUS "    Boost")
+message(STATUS "      Minimum version : " ${BOOST_MINIMUM_VERSION})
 message(STATUS "-------------------------")
 message(STATUS "")
 

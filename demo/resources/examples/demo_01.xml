@@ -1,1078 +1,1370 @@
-<qschematic>
-    <nets>
-        <net>
-            <label type_id="65541">
-                <connection_point enabled="true">
-                    <x>0.</x>
-                    <y>0.</y>
-                </connection_point>
-                <item type_id="65541">
-                    <highlight>true</highlight>
-                    <movable>true</movable>
-                    <rotation direction="cw" unit="degrees">0.</rotation>
-                    <snap_to_grid>false</snap_to_grid>
-                    <visible>false</visible>
-                    <x>0.</x>
-                    <y>0.</y>
-                </item>
-                <text></text>
-            </label>
-            <name></name>
-            <wires>
-                <wire type_id="65639">
-                    <wire type_id="65639">
-                        <item type_id="65639">
-                            <highlight>true</highlight>
-                            <movable>true</movable>
-                            <rotation direction="cw" unit="degrees">0.</rotation>
-                            <snap_to_grid>true</snap_to_grid>
-                            <visible>true</visible>
-                            <x>-360.</x>
-                            <y>40.</y>
-                        </item>
-                        <points>
-                            <point index="0">
-                                <x>-360.</x>
-                                <y>40.</y>
-                            </point>
-                            <point index="1">
-                                <x>-260.</x>
-                                <y>40.</y>
-                            </point>
-                        </points>
-                    </wire>
-                </wire>
-                <wire type_id="65639">
-                    <wire type_id="65639">
-                        <item type_id="65639">
-                            <highlight>true</highlight>
-                            <movable>true</movable>
-                            <rotation direction="cw" unit="degrees">0.</rotation>
-                            <snap_to_grid>true</snap_to_grid>
-                            <visible>true</visible>
-                            <x>-260.</x>
-                            <y>200.</y>
-                        </item>
-                        <points>
-                            <point index="0">
-                                <x>-260.</x>
-                                <y>200.</y>
-                            </point>
-                            <point index="1">
-                                <x>-300.</x>
-                                <y>200.</y>
-                            </point>
-                            <point index="2">
-                                <x>-300.</x>
-                                <y>40.</y>
-                            </point>
-                        </points>
-                    </wire>
-                </wire>
-            </wires>
-        </net>
-        <net>
-            <label type_id="65541">
-                <connection_point enabled="true">
-                    <x>0.</x>
-                    <y>0.</y>
-                </connection_point>
-                <item type_id="65541">
-                    <highlight>true</highlight>
-                    <movable>true</movable>
-                    <rotation direction="cw" unit="degrees">0.</rotation>
-                    <snap_to_grid>false</snap_to_grid>
-                    <visible>false</visible>
-                    <x>0.</x>
-                    <y>0.</y>
-                </item>
-                <text></text>
-            </label>
-            <name></name>
-            <wires>
-                <wire type_id="65639">
-                    <wire type_id="65639">
-                        <item type_id="65639">
-                            <highlight>true</highlight>
-                            <movable>true</movable>
-                            <rotation direction="cw" unit="degrees">0.</rotation>
-                            <snap_to_grid>true</snap_to_grid>
-                            <visible>true</visible>
-                            <x>-100.</x>
-                            <y>40.</y>
-                        </item>
-                        <points>
-                            <point index="0">
-                                <x>-100.</x>
-                                <y>40.</y>
-                            </point>
-                            <point index="1">
-                                <x>20.</x>
-                                <y>40.</y>
-                            </point>
-                        </points>
-                    </wire>
-                </wire>
-            </wires>
-        </net>
-        <net>
-            <label type_id="65541">
-                <connection_point enabled="true">
-                    <x>0.</x>
-                    <y>0.</y>
-                </connection_point>
-                <item type_id="65541">
-                    <highlight>true</highlight>
-                    <movable>true</movable>
-                    <rotation direction="cw" unit="degrees">0.</rotation>
-                    <snap_to_grid>false</snap_to_grid>
-                    <visible>false</visible>
-                    <x>0.</x>
-                    <y>0.</y>
-                </item>
-                <text></text>
-            </label>
-            <name></name>
-            <wires>
-                <wire type_id="65639">
-                    <wire type_id="65639">
-                        <item type_id="65639">
-                            <highlight>true</highlight>
-                            <movable>true</movable>
-                            <rotation direction="cw" unit="degrees">0.</rotation>
-                            <snap_to_grid>true</snap_to_grid>
-                            <visible>true</visible>
-                            <x>20.</x>
-                            <y>200.</y>
-                        </item>
-                        <points>
-                            <point index="0">
-                                <x>20.</x>
-                                <y>200.</y>
-                            </point>
-                            <point index="1">
-                                <x>-100.</x>
-                                <y>200.</y>
-                            </point>
-                        </points>
-                    </wire>
-                </wire>
-            </wires>
-        </net>
-        <net>
-            <label type_id="65541">
-                <connection_point enabled="true">
-                    <x>0.</x>
-                    <y>0.</y>
-                </connection_point>
-                <item type_id="65541">
-                    <highlight>true</highlight>
-                    <movable>true</movable>
-                    <rotation direction="cw" unit="degrees">0.</rotation>
-                    <snap_to_grid>false</snap_to_grid>
-                    <visible>false</visible>
-                    <x>0.</x>
-                    <y>0.</y>
-                </item>
-                <text></text>
-            </label>
-            <name></name>
-            <wires>
-                <wire type_id="65639">
-                    <wire type_id="65639">
-                        <item type_id="65639">
-                            <highlight>true</highlight>
-                            <movable>true</movable>
-                            <rotation direction="cw" unit="degrees">0.</rotation>
-                            <snap_to_grid>true</snap_to_grid>
-                            <visible>true</visible>
-                            <x>20.</x>
-                            <y>380.</y>
-                        </item>
-                        <points>
-                            <point index="0">
-                                <x>20.</x>
-                                <y>380.</y>
-                            </point>
-                            <point index="1">
-                                <x>-360.</x>
-                                <y>380.</y>
-                            </point>
-                        </points>
-                    </wire>
-                </wire>
-                <wire type_id="65639">
-                    <wire type_id="65639">
-                        <item type_id="65639">
-                            <highlight>true</highlight>
-                            <movable>true</movable>
-                            <rotation direction="cw" unit="degrees">0.</rotation>
-                            <snap_to_grid>true</snap_to_grid>
-                            <visible>true</visible>
-                            <x>380.</x>
-                            <y>80.</y>
-                        </item>
-                        <points>
-                            <point index="0">
-                                <x>380.</x>
-                                <y>80.</y>
-                            </point>
-                            <point index="1">
-                                <x>280.</x>
-                                <y>80.</y>
-                            </point>
-                            <point index="2">
-                                <x>280.</x>
-                                <y>560.</y>
-                            </point>
-                            <point index="3">
-                                <x>-40.</x>
-                                <y>560.</y>
-                            </point>
-                            <point index="4">
-                                <x>-40.</x>
-                                <y>380.</y>
-                            </point>
-                        </points>
-                    </wire>
-                </wire>
-            </wires>
-        </net>
-        <net>
-            <label type_id="65541">
-                <connection_point enabled="true">
-                    <x>0.</x>
-                    <y>0.</y>
-                </connection_point>
-                <item type_id="65541">
-                    <highlight>true</highlight>
-                    <movable>true</movable>
-                    <rotation direction="cw" unit="degrees">0.</rotation>
-                    <snap_to_grid>false</snap_to_grid>
-                    <visible>false</visible>
-                    <x>0.</x>
-                    <y>0.</y>
-                </item>
-                <text></text>
-            </label>
-            <name></name>
-            <wires>
-                <wire type_id="65639">
-                    <wire type_id="65639">
-                        <item type_id="65639">
-                            <highlight>true</highlight>
-                            <movable>true</movable>
-                            <rotation direction="cw" unit="degrees">0.</rotation>
-                            <snap_to_grid>true</snap_to_grid>
-                            <visible>true</visible>
-                            <x>380.</x>
-                            <y>20.</y>
-                        </item>
-                        <points>
-                            <point index="0">
-                                <x>380.</x>
-                                <y>40.</y>
-                            </point>
-                            <point index="1">
-                                <x>180.</x>
-                                <y>40.</y>
-                            </point>
-                        </points>
-                    </wire>
-                </wire>
-            </wires>
-        </net>
-        <net>
-            <label type_id="65541">
-                <connection_point enabled="true">
-                    <x>0.</x>
-                    <y>0.</y>
-                </connection_point>
-                <item type_id="65541">
-                    <highlight>true</highlight>
-                    <movable>true</movable>
-                    <rotation direction="cw" unit="degrees">0.</rotation>
-                    <snap_to_grid>false</snap_to_grid>
-                    <visible>false</visible>
-                    <x>0.</x>
-                    <y>0.</y>
-                </item>
-                <text></text>
-            </label>
-            <name></name>
-            <wires>
-                <wire type_id="65639">
-                    <wire type_id="65639">
-                        <item type_id="65639">
-                            <highlight>true</highlight>
-                            <movable>true</movable>
-                            <rotation direction="cw" unit="degrees">0.</rotation>
-                            <snap_to_grid>true</snap_to_grid>
-                            <visible>true</visible>
-                            <x>540.</x>
-                            <y>60.</y>
-                        </item>
-                        <points>
-                            <point index="0">
-                                <x>540.</x>
-                                <y>60.</y>
-                            </point>
-                            <point index="1">
-                                <x>620.</x>
-                                <y>60.</y>
-                            </point>
-                        </points>
-                    </wire>
-                </wire>
-            </wires>
-        </net>
-    </nets>
-    <nodes>
-        <node type_id="65637">
-            <label type_id="65541">
-                <connection_point enabled="true">
-                    <x>80.</x>
-                    <y>40.</y>
-                </connection_point>
-                <item type_id="65541">
-                    <highlight>true</highlight>
-                    <movable>true</movable>
-                    <rotation direction="cw" unit="degrees">0.</rotation>
-                    <snap_to_grid>false</snap_to_grid>
-                    <visible>true</visible>
-                    <x>43.</x>
-                    <y>-10.</y>
-                </item>
-                <text>Operation 1</text>
-            </label>
-            <node type_id="65637">
-                <allow_mouse_resize>true</allow_mouse_resize>
-                <allow_mouse_rotate>true</allow_mouse_rotate>
-                <connectors>
-                    <connector type_id="65638">
-                        <connector type_id="65638">
-                            <force_text_direction>false</force_text_direction>
-                            <item type_id="65638">
-                                <highlight>true</highlight>
-                                <movable>true</movable>
-                                <rotation direction="cw" unit="degrees">0.</rotation>
-                                <snap_to_grid>true</snap_to_grid>
-                                <visible>true</visible>
-                                <x>0.</x>
-                                <y>40.</y>
-                            </item>
-                            <label type_id="65541">
-                                <connection_point enabled="true">
-                                    <x>0.</x>
-                                    <y>0.</y>
-                                </connection_point>
-                                <item type_id="65541">
-                                    <highlight>true</highlight>
-                                    <movable>true</movable>
-                                    <rotation direction="cw" unit="degrees">0.</rotation>
-                                    <snap_to_grid>false</snap_to_grid>
-                                    <visible>true</visible>
-                                    <x>15.</x>
-                                    <y>4.75</y>
-                                </item>
-                                <text>in</text>
-                            </label>
-                            <snap_policy></snap_policy>
-                            <text_direction></text_direction>
-                        </connector>
-                    </connector>
-                    <connector type_id="65638">
-                        <connector type_id="65638">
-                            <force_text_direction>false</force_text_direction>
-                            <item type_id="65638">
-                                <highlight>true</highlight>
-                                <movable>true</movable>
-                                <rotation direction="cw" unit="degrees">0.</rotation>
-                                <snap_to_grid>true</snap_to_grid>
-                                <visible>true</visible>
-                                <x>160.</x>
-                                <y>40.</y>
-                            </item>
-                            <label type_id="65541">
-                                <connection_point enabled="true">
-                                    <x>0.</x>
-                                    <y>0.</y>
-                                </connection_point>
-                                <item type_id="65541">
-                                    <highlight>true</highlight>
-                                    <movable>true</movable>
-                                    <rotation direction="cw" unit="degrees">0.</rotation>
-                                    <snap_to_grid>false</snap_to_grid>
-                                    <visible>true</visible>
-                                    <x>-39.</x>
-                                    <y>4.75</y>
-                                </item>
-                                <text>out</text>
-                            </label>
-                            <snap_policy></snap_policy>
-                            <text_direction></text_direction>
-                        </connector>
-                    </connector>
-                </connectors>
-                <connectors_configuration>
-                    <movable>true</movable>
-                    <snap_policy>2</snap_policy>
-                    <snap_to_grid>true</snap_to_grid>
-                </connectors_configuration>
-                <height>80.</height>
-                <rect_item type_id="65637">
-                    <allow_mouse_resize>true</allow_mouse_resize>
-                    <allow_mouse_rotate>true</allow_mouse_rotate>
-                    <height>80.</height>
-                    <item type_id="65637">
-                        <highlight>true</highlight>
-                        <movable>true</movable>
-                        <rotation direction="cw" unit="degrees">0.</rotation>
-                        <snap_to_grid>true</snap_to_grid>
-                        <visible>true</visible>
-                        <x>-260.</x>
-                        <y>0.</y>
-                    </item>
-                    <minimum_height>40.</minimum_height>
-                    <minimum_width>40.</minimum_width>
-                    <width>160.</width>
-                </rect_item>
-                <width>160.</width>
-            </node>
-        </node>
-        <node type_id="65637">
-            <label type_id="65541">
-                <connection_point enabled="true">
-                    <x>80.</x>
-                    <y>40.</y>
-                </connection_point>
-                <item type_id="65541">
-                    <highlight>true</highlight>
-                    <movable>true</movable>
-                    <rotation direction="cw" unit="degrees">0.</rotation>
-                    <snap_to_grid>false</snap_to_grid>
-                    <visible>true</visible>
-                    <x>43.</x>
-                    <y>-10.</y>
-                </item>
-                <text>Operation 2</text>
-            </label>
-            <node type_id="65637">
-                <allow_mouse_resize>true</allow_mouse_resize>
-                <allow_mouse_rotate>true</allow_mouse_rotate>
-                <connectors>
-                    <connector type_id="65638">
-                        <connector type_id="65638">
-                            <force_text_direction>false</force_text_direction>
-                            <item type_id="65638">
-                                <highlight>true</highlight>
-                                <movable>true</movable>
-                                <rotation direction="cw" unit="degrees">0.</rotation>
-                                <snap_to_grid>true</snap_to_grid>
-                                <visible>true</visible>
-                                <x>0.</x>
-                                <y>40.</y>
-                            </item>
-                            <label type_id="65541">
-                                <connection_point enabled="true">
-                                    <x>0.</x>
-                                    <y>0.</y>
-                                </connection_point>
-                                <item type_id="65541">
-                                    <highlight>true</highlight>
-                                    <movable>true</movable>
-                                    <rotation direction="cw" unit="degrees">0.</rotation>
-                                    <snap_to_grid>false</snap_to_grid>
-                                    <visible>true</visible>
-                                    <x>15.</x>
-                                    <y>4.75</y>
-                                </item>
-                                <text>in</text>
-                            </label>
-                            <snap_policy></snap_policy>
-                            <text_direction></text_direction>
-                        </connector>
-                    </connector>
-                    <connector type_id="65638">
-                        <connector type_id="65638">
-                            <force_text_direction>false</force_text_direction>
-                            <item type_id="65638">
-                                <highlight>true</highlight>
-                                <movable>true</movable>
-                                <rotation direction="cw" unit="degrees">0.</rotation>
-                                <snap_to_grid>true</snap_to_grid>
-                                <visible>true</visible>
-                                <x>160.</x>
-                                <y>40.</y>
-                            </item>
-                            <label type_id="65541">
-                                <connection_point enabled="true">
-                                    <x>0.</x>
-                                    <y>0.</y>
-                                </connection_point>
-                                <item type_id="65541">
-                                    <highlight>true</highlight>
-                                    <movable>true</movable>
-                                    <rotation direction="cw" unit="degrees">0.</rotation>
-                                    <snap_to_grid>false</snap_to_grid>
-                                    <visible>true</visible>
-                                    <x>-39.</x>
-                                    <y>4.75</y>
-                                </item>
-                                <text>out</text>
-                            </label>
-                            <snap_policy></snap_policy>
-                            <text_direction></text_direction>
-                        </connector>
-                    </connector>
-                </connectors>
-                <connectors_configuration>
-                    <movable>true</movable>
-                    <snap_policy>2</snap_policy>
-                    <snap_to_grid>true</snap_to_grid>
-                </connectors_configuration>
-                <height>80.</height>
-                <rect_item type_id="65637">
-                    <allow_mouse_resize>true</allow_mouse_resize>
-                    <allow_mouse_rotate>true</allow_mouse_rotate>
-                    <height>80.</height>
-                    <item type_id="65637">
-                        <highlight>true</highlight>
-                        <movable>true</movable>
-                        <rotation direction="cw" unit="degrees">0.</rotation>
-                        <snap_to_grid>true</snap_to_grid>
-                        <visible>true</visible>
-                        <x>-260.</x>
-                        <y>160.</y>
-                    </item>
-                    <minimum_height>40.</minimum_height>
-                    <minimum_width>40.</minimum_width>
-                    <width>160.</width>
-                </rect_item>
-                <width>160.</width>
-            </node>
-        </node>
-        <node type_id="65637">
-            <label type_id="65541">
-                <connection_point enabled="true">
-                    <x>80.</x>
-                    <y>60.</y>
-                </connection_point>
-                <item type_id="65541">
-                    <highlight>true</highlight>
-                    <movable>true</movable>
-                    <rotation direction="cw" unit="degrees">0.</rotation>
-                    <snap_to_grid>false</snap_to_grid>
-                    <visible>true</visible>
-                    <x>43.</x>
-                    <y>-10.</y>
-                </item>
-                <text>Operation 3</text>
-            </label>
-            <node type_id="65637">
-                <allow_mouse_resize>true</allow_mouse_resize>
-                <allow_mouse_rotate>true</allow_mouse_rotate>
-                <connectors>
-                    <connector type_id="65638">
-                        <connector type_id="65638">
-                            <force_text_direction>false</force_text_direction>
-                            <item type_id="65638">
-                                <highlight>true</highlight>
-                                <movable>true</movable>
-                                <rotation direction="cw" unit="degrees">0.</rotation>
-                                <snap_to_grid>true</snap_to_grid>
-                                <visible>true</visible>
-                                <x>0.</x>
-                                <y>40.</y>
-                            </item>
-                            <label type_id="65541">
-                                <connection_point enabled="true">
-                                    <x>0.</x>
-                                    <y>0.</y>
-                                </connection_point>
-                                <item type_id="65541">
-                                    <highlight>true</highlight>
-                                    <movable>true</movable>
-                                    <rotation direction="cw" unit="degrees">0.</rotation>
-                                    <snap_to_grid>false</snap_to_grid>
-                                    <visible>true</visible>
-                                    <x>15.</x>
-                                    <y>4.75</y>
-                                </item>
-                                <text>in 1</text>
-                            </label>
-                            <snap_policy></snap_policy>
-                            <text_direction></text_direction>
-                        </connector>
-                    </connector>
-                    <connector type_id="65638">
-                        <connector type_id="65638">
-                            <force_text_direction>false</force_text_direction>
-                            <item type_id="65638">
-                                <highlight>true</highlight>
-                                <movable>true</movable>
-                                <rotation direction="cw" unit="degrees">0.</rotation>
-                                <snap_to_grid>true</snap_to_grid>
-                                <visible>true</visible>
-                                <x>0.</x>
-                                <y>80.</y>
-                            </item>
-                            <label type_id="65541">
-                                <connection_point enabled="true">
-                                    <x>0.</x>
-                                    <y>0.</y>
-                                </connection_point>
-                                <item type_id="65541">
-                                    <highlight>true</highlight>
-                                    <movable>true</movable>
-                                    <rotation direction="cw" unit="degrees">0.</rotation>
-                                    <snap_to_grid>false</snap_to_grid>
-                                    <visible>true</visible>
-                                    <x>15.</x>
-                                    <y>4.75</y>
-                                </item>
-                                <text>in 2</text>
-                            </label>
-                            <snap_policy></snap_policy>
-                            <text_direction></text_direction>
-                        </connector>
-                    </connector>
-                    <connector type_id="65638">
-                        <connector type_id="65638">
-                            <force_text_direction>false</force_text_direction>
-                            <item type_id="65638">
-                                <highlight>true</highlight>
-                                <movable>true</movable>
-                                <rotation direction="cw" unit="degrees">0.</rotation>
-                                <snap_to_grid>true</snap_to_grid>
-                                <visible>true</visible>
-                                <x>160.</x>
-                                <y>60.</y>
-                            </item>
-                            <label type_id="65541">
-                                <connection_point enabled="true">
-                                    <x>0.</x>
-                                    <y>0.</y>
-                                </connection_point>
-                                <item type_id="65541">
-                                    <highlight>true</highlight>
-                                    <movable>true</movable>
-                                    <rotation direction="cw" unit="degrees">0.</rotation>
-                                    <snap_to_grid>false</snap_to_grid>
-                                    <visible>true</visible>
-                                    <x>-39.</x>
-                                    <y>4.75</y>
-                                </item>
-                                <text>out</text>
-                            </label>
-                            <snap_policy></snap_policy>
-                            <text_direction></text_direction>
-                        </connector>
-                    </connector>
-                </connectors>
-                <connectors_configuration>
-                    <movable>true</movable>
-                    <snap_policy>2</snap_policy>
-                    <snap_to_grid>true</snap_to_grid>
-                </connectors_configuration>
-                <height>120.</height>
-                <rect_item type_id="65637">
-                    <allow_mouse_resize>true</allow_mouse_resize>
-                    <allow_mouse_rotate>true</allow_mouse_rotate>
-                    <height>120.</height>
-                    <item type_id="65637">
-                        <highlight>true</highlight>
-                        <movable>true</movable>
-                        <rotation direction="cw" unit="degrees">0.</rotation>
-                        <snap_to_grid>true</snap_to_grid>
-                        <visible>true</visible>
-                        <x>380.</x>
-                        <y>0.</y>
-                    </item>
-                    <minimum_height>40.</minimum_height>
-                    <minimum_width>40.</minimum_width>
-                    <width>160.</width>
-                </rect_item>
-                <width>160.</width>
-            </node>
-        </node>
-        <node type_id="65641">
-            <node type_id="65641">
-                <allow_mouse_resize>false</allow_mouse_resize>
-                <allow_mouse_rotate>true</allow_mouse_rotate>
-                <connectors>
-                    <connector type_id="65638">
-                        <connector type_id="65638">
-                            <force_text_direction>false</force_text_direction>
-                            <item type_id="65638">
-                                <highlight>true</highlight>
-                                <movable>false</movable>
-                                <rotation direction="cw" unit="degrees">0.</rotation>
-                                <snap_to_grid>true</snap_to_grid>
-                                <visible>true</visible>
-                                <x>20.</x>
-                                <y>0.</y>
-                            </item>
-                            <label type_id="65541">
-                                <connection_point enabled="true">
-                                    <x>0.</x>
-                                    <y>0.</y>
-                                </connection_point>
-                                <item type_id="65541">
-                                    <highlight>true</highlight>
-                                    <movable>false</movable>
-                                    <rotation direction="cw" unit="degrees">0.</rotation>
-                                    <snap_to_grid>false</snap_to_grid>
-                                    <visible>false</visible>
-                                    <x>15.</x>
-                                    <y>1.</y>
-                                </item>
-                                <text></text>
-                            </label>
-                            <snap_policy></snap_policy>
-                            <text_direction></text_direction>
-                        </connector>
-                    </connector>
-                </connectors>
-                <connectors_configuration>
-                    <movable>false</movable>
-                    <snap_policy>2</snap_policy>
-                    <snap_to_grid>true</snap_to_grid>
-                </connectors_configuration>
-                <height>40.</height>
-                <rect_item type_id="65641">
-                    <allow_mouse_resize>false</allow_mouse_resize>
-                    <allow_mouse_rotate>true</allow_mouse_rotate>
-                    <height>40.</height>
-                    <item type_id="65641">
-                        <highlight>true</highlight>
-                        <movable>true</movable>
-                        <rotation direction="cw" unit="degrees">0.</rotation>
-                        <snap_to_grid>true</snap_to_grid>
-                        <visible>true</visible>
-                        <x>-380.</x>
-                        <y>40.</y>
-                    </item>
-                    <minimum_height>40.</minimum_height>
-                    <minimum_width>40.</minimum_width>
-                    <width>60.</width>
-                </rect_item>
-                <width>60.</width>
-            </node>
-        </node>
-        <node type_id="65640">
-            <operation type_id="65640">
-                <label type_id="65541">
-                    <connection_point enabled="true">
-                        <x>80.</x>
-                        <y>210.</y>
-                    </connection_point>
-                    <item type_id="65541">
-                        <highlight>true</highlight>
-                        <movable>true</movable>
-                        <rotation direction="cw" unit="degrees">0.</rotation>
-                        <snap_to_grid>false</snap_to_grid>
-                        <visible>true</visible>
-                        <x>55.5</x>
-                        <y>-10.</y>
-                    </item>
-                    <text>Demo 1</text>
-                </label>
-                <node type_id="65640">
-                    <allow_mouse_resize>true</allow_mouse_resize>
-                    <allow_mouse_rotate>true</allow_mouse_rotate>
-                    <connectors>
-                        <connector type_id="65638">
-                            <connector type_id="65638">
-                                <force_text_direction>false</force_text_direction>
-                                <item type_id="65638">
-                                    <highlight>true</highlight>
-                                    <movable>true</movable>
-                                    <rotation direction="cw" unit="degrees">0.</rotation>
-                                    <snap_to_grid>true</snap_to_grid>
-                                    <visible>true</visible>
-                                    <x>0.</x>
-                                    <y>40.</y>
-                                </item>
-                                <label type_id="65541">
-                                    <connection_point enabled="true">
-                                        <x>0.</x>
-                                        <y>0.</y>
-                                    </connection_point>
-                                    <item type_id="65541">
-                                        <highlight>true</highlight>
-                                        <movable>true</movable>
-                                        <rotation direction="cw" unit="degrees">0.</rotation>
-                                        <snap_to_grid>false</snap_to_grid>
-                                        <visible>true</visible>
-                                        <x>15.</x>
-                                        <y>4.75</y>
-                                    </item>
-                                    <text>in 1</text>
-                                </label>
-                                <snap_policy></snap_policy>
-                                <text_direction></text_direction>
-                            </connector>
-                        </connector>
-                        <connector type_id="65638">
-                            <connector type_id="65638">
-                                <force_text_direction>false</force_text_direction>
-                                <item type_id="65638">
-                                    <highlight>true</highlight>
-                                    <movable>true</movable>
-                                    <rotation direction="cw" unit="degrees">0.</rotation>
-                                    <snap_to_grid>true</snap_to_grid>
-                                    <visible>true</visible>
-                                    <x>0.</x>
-                                    <y>200.</y>
-                                </item>
-                                <label type_id="65541">
-                                    <connection_point enabled="true">
-                                        <x>0.</x>
-                                        <y>0.</y>
-                                    </connection_point>
-                                    <item type_id="65541">
-                                        <highlight>true</highlight>
-                                        <movable>true</movable>
-                                        <rotation direction="cw" unit="degrees">0.</rotation>
-                                        <snap_to_grid>false</snap_to_grid>
-                                        <visible>true</visible>
-                                        <x>15.</x>
-                                        <y>4.75</y>
-                                    </item>
-                                    <text>in 2</text>
-                                </label>
-                                <snap_policy></snap_policy>
-                                <text_direction></text_direction>
-                            </connector>
-                        </connector>
-                        <connector type_id="65638">
-                            <connector type_id="65638">
-                                <force_text_direction>false</force_text_direction>
-                                <item type_id="65638">
-                                    <highlight>true</highlight>
-                                    <movable>true</movable>
-                                    <rotation direction="cw" unit="degrees">0.</rotation>
-                                    <snap_to_grid>true</snap_to_grid>
-                                    <visible>true</visible>
-                                    <x>0.</x>
-                                    <y>380.</y>
-                                </item>
-                                <label type_id="65541">
-                                    <connection_point enabled="true">
-                                        <x>0.</x>
-                                        <y>0.</y>
-                                    </connection_point>
-                                    <item type_id="65541">
-                                        <highlight>true</highlight>
-                                        <movable>true</movable>
-                                        <rotation direction="cw" unit="degrees">0.</rotation>
-                                        <snap_to_grid>false</snap_to_grid>
-                                        <visible>true</visible>
-                                        <x>15.</x>
-                                        <y>4.75</y>
-                                    </item>
-                                    <text>in 3</text>
-                                </label>
-                                <snap_policy></snap_policy>
-                                <text_direction></text_direction>
-                            </connector>
-                        </connector>
-                        <connector type_id="65638">
-                            <connector type_id="65638">
-                                <force_text_direction>false</force_text_direction>
-                                <item type_id="65638">
-                                    <highlight>true</highlight>
-                                    <movable>true</movable>
-                                    <rotation direction="cw" unit="degrees">0.</rotation>
-                                    <snap_to_grid>true</snap_to_grid>
-                                    <visible>true</visible>
-                                    <x>160.</x>
-                                    <y>40.</y>
-                                </item>
-                                <label type_id="65541">
-                                    <connection_point enabled="true">
-                                        <x>0.</x>
-                                        <y>0.</y>
-                                    </connection_point>
-                                    <item type_id="65541">
-                                        <highlight>true</highlight>
-                                        <movable>true</movable>
-                                        <rotation direction="cw" unit="degrees">0.</rotation>
-                                        <snap_to_grid>false</snap_to_grid>
-                                        <visible>true</visible>
-                                        <x>-39.</x>
-                                        <y>4.75</y>
-                                    </item>
-                                    <text>out</text>
-                                </label>
-                                <snap_policy></snap_policy>
-                                <text_direction></text_direction>
-                            </connector>
-                        </connector>
-                    </connectors>
-                    <connectors_configuration>
-                        <movable>true</movable>
-                        <snap_policy>2</snap_policy>
-                        <snap_to_grid>true</snap_to_grid>
-                    </connectors_configuration>
-                    <height>420.</height>
-                    <rect_item type_id="65640">
-                        <allow_mouse_resize>true</allow_mouse_resize>
-                        <allow_mouse_rotate>true</allow_mouse_rotate>
-                        <height>420.</height>
-                        <item type_id="65640">
-                            <highlight>true</highlight>
-                            <movable>true</movable>
-                            <rotation direction="cw" unit="degrees">0.</rotation>
-                            <snap_to_grid>true</snap_to_grid>
-                            <visible>true</visible>
-                            <x>20.</x>
-                            <y>0.</y>
-                        </item>
-                        <minimum_height>40.</minimum_height>
-                        <minimum_width>40.</minimum_width>
-                        <width>160.</width>
-                    </rect_item>
-                    <width>160.</width>
-                </node>
-            </operation>
-        </node>
-        <node type_id="65641">
-            <node type_id="65641">
-                <allow_mouse_resize>false</allow_mouse_resize>
-                <allow_mouse_rotate>true</allow_mouse_rotate>
-                <connectors>
-                    <connector type_id="65638">
-                        <connector type_id="65638">
-                            <force_text_direction>false</force_text_direction>
-                            <item type_id="65638">
-                                <highlight>true</highlight>
-                                <movable>false</movable>
-                                <rotation direction="cw" unit="degrees">0.</rotation>
-                                <snap_to_grid>true</snap_to_grid>
-                                <visible>true</visible>
-                                <x>20.</x>
-                                <y>0.</y>
-                            </item>
-                            <label type_id="65541">
-                                <connection_point enabled="true">
-                                    <x>0.</x>
-                                    <y>0.</y>
-                                </connection_point>
-                                <item type_id="65541">
-                                    <highlight>true</highlight>
-                                    <movable>false</movable>
-                                    <rotation direction="cw" unit="degrees">0.</rotation>
-                                    <snap_to_grid>false</snap_to_grid>
-                                    <visible>false</visible>
-                                    <x>15.</x>
-                                    <y>1.</y>
-                                </item>
-                                <text></text>
-                            </label>
-                            <snap_policy></snap_policy>
-                            <text_direction></text_direction>
-                        </connector>
-                    </connector>
-                </connectors>
-                <connectors_configuration>
-                    <movable>false</movable>
-                    <snap_policy>2</snap_policy>
-                    <snap_to_grid>true</snap_to_grid>
-                </connectors_configuration>
-                <height>40.</height>
-                <rect_item type_id="65641">
-                    <allow_mouse_resize>false</allow_mouse_resize>
-                    <allow_mouse_rotate>true</allow_mouse_rotate>
-                    <height>40.</height>
-                    <item type_id="65641">
-                        <highlight>true</highlight>
-                        <movable>true</movable>
-                        <rotation direction="cw" unit="degrees">0.</rotation>
-                        <snap_to_grid>true</snap_to_grid>
-                        <visible>true</visible>
-                        <x>-380.</x>
-                        <y>380.</y>
-                    </item>
-                    <minimum_height>40.</minimum_height>
-                    <minimum_width>40.</minimum_width>
-                    <width>60.</width>
-                </rect_item>
-                <width>60.</width>
-            </node>
-        </node>
-        <node type_id="65642">
-            <node type_id="65642">
-                <allow_mouse_resize>false</allow_mouse_resize>
-                <allow_mouse_rotate>true</allow_mouse_rotate>
-                <connectors>
-                    <connector type_id="65638">
-                        <connector type_id="65638">
-                            <force_text_direction>false</force_text_direction>
-                            <item type_id="65638">
-                                <highlight>true</highlight>
-                                <movable>false</movable>
-                                <rotation direction="cw" unit="degrees">0.</rotation>
-                                <snap_to_grid>true</snap_to_grid>
-                                <visible>true</visible>
-                                <x>20.</x>
-                                <y>0.</y>
-                            </item>
-                            <label type_id="65541">
-                                <connection_point enabled="true">
-                                    <x>0.</x>
-                                    <y>0.</y>
-                                </connection_point>
-                                <item type_id="65541">
-                                    <highlight>true</highlight>
-                                    <movable>false</movable>
-                                    <rotation direction="cw" unit="degrees">0.</rotation>
-                                    <snap_to_grid>false</snap_to_grid>
-                                    <visible>false</visible>
-                                    <x>15.</x>
-                                    <y>1.</y>
-                                </item>
-                                <text></text>
-                            </label>
-                            <snap_policy></snap_policy>
-                            <text_direction></text_direction>
-                        </connector>
-                    </connector>
-                </connectors>
-                <connectors_configuration>
-                    <movable>false</movable>
-                    <snap_policy>2</snap_policy>
-                    <snap_to_grid>true</snap_to_grid>
-                </connectors_configuration>
-                <height>40.</height>
-                <rect_item type_id="65642">
-                    <allow_mouse_resize>false</allow_mouse_resize>
-                    <allow_mouse_rotate>true</allow_mouse_rotate>
-                    <height>40.</height>
-                    <item type_id="65642">
-                        <highlight>true</highlight>
-                        <movable>true</movable>
-                        <rotation direction="cw" unit="degrees">0.</rotation>
-                        <snap_to_grid>true</snap_to_grid>
-                        <visible>true</visible>
-                        <x>600.</x>
-                        <y>60.</y>
-                    </item>
-                    <minimum_height>40.</minimum_height>
-                    <minimum_width>40.</minimum_width>
-                    <width>60.</width>
-                </rect_item>
-                <width>60.</width>
-            </node>
-        </node>
-    </nodes>
-    <scene>
-        <rect>
-            <height>3000</height>
-            <width>3000</width>
-            <x>-500</x>
-            <y>-500</y>
-        </rect>
-    </scene>
-</qschematic>
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE boost_serialization>
+<boost_serialization signature="serialization::archive" version="20">
+<scene class_id="0" tracking_level="0" version="0">
+	<scene_x>-500</scene_x>
+	<scene_y>-500</scene_y>
+	<scene_width>3000</scene_width>
+	<scene_height>3000</scene_height>
+	<nodes class_id="1" tracking_level="0" version="0">
+		<count>7</count>
+		<item_version>1</item_version>
+		<item class_id="2" tracking_level="0" version="1">
+			<px class_id="3" class_name="Operation" tracking_level="1" version="0" object_id="_0">
+				<Node class_id="4" tracking_level="1" version="0" object_id="_1">
+					<connectors_movable>1</connectors_movable>
+					<connectors_snap_policy>2</connectors_snap_policy>
+					<connectors_snap_to_grid>1</connectors_snap_to_grid>
+					<connectors class_id="5" tracking_level="0" version="0">
+						<count>2</count>
+						<item_version>1</item_version>
+						<item class_id="6" tracking_level="0" version="1">
+							<px class_id="8" class_name="OperationConnector" tracking_level="1" version="0" object_id="_2">
+								<Connector class_id="7" tracking_level="1" version="0" object_id="_3">
+									<Item class_id="9" tracking_level="0" version="0">
+										<type>65638</type>
+										<x>0.00000000000000000e+00</x>
+										<y>4.00000000000000000e+01</y>
+										<rotation>0.00000000000000000e+00</rotation>
+										<movable>1</movable>
+										<visible>1</visible>
+										<snap_to_grid>1</snap_to_grid>
+										<highlight>1</highlight>
+									</Item>
+									<snap_policy>2</snap_policy>
+									<force_text_direction>0</force_text_direction>
+									<text_direction>0</text_direction>
+									<label class_id="10" tracking_level="0" version="1">
+										<px class_id="11" tracking_level="1" version="0" object_id="_4">
+											<Item>
+												<type>65541</type>
+												<x>1.50000000000000000e+01</x>
+												<y>4.99218750000000000e+00</y>
+												<rotation>0.00000000000000000e+00</rotation>
+												<movable>1</movable>
+												<visible>1</visible>
+												<snap_to_grid>0</snap_to_grid>
+												<highlight>1</highlight>
+											</Item>
+											<text>in</text>
+											<hasConnectionPoint>1</hasConnectionPoint>
+											<connectionPoint_x>0.00000000000000000e+00</connectionPoint_x>
+											<connectionPoint_y>0.00000000000000000e+00</connectionPoint_y>
+										</px>
+									</label>
+								</Connector>
+							</px>
+						</item>
+						<item>
+							<px class_id_reference="8" object_id="_5">
+								<Connector object_id="_6">
+									<Item>
+										<type>65638</type>
+										<x>1.60000000000000000e+02</x>
+										<y>4.00000000000000000e+01</y>
+										<rotation>0.00000000000000000e+00</rotation>
+										<movable>1</movable>
+										<visible>1</visible>
+										<snap_to_grid>1</snap_to_grid>
+										<highlight>1</highlight>
+									</Item>
+									<snap_policy>2</snap_policy>
+									<force_text_direction>0</force_text_direction>
+									<text_direction>1</text_direction>
+									<label>
+										<px class_id_reference="11" object_id="_7">
+											<Item>
+												<type>65541</type>
+												<x>-3.60156250000000000e+01</x>
+												<y>4.99218750000000000e+00</y>
+												<rotation>0.00000000000000000e+00</rotation>
+												<movable>1</movable>
+												<visible>1</visible>
+												<snap_to_grid>0</snap_to_grid>
+												<highlight>1</highlight>
+											</Item>
+											<text>out</text>
+											<hasConnectionPoint>1</hasConnectionPoint>
+											<connectionPoint_x>0.00000000000000000e+00</connectionPoint_x>
+											<connectionPoint_y>0.00000000000000000e+00</connectionPoint_y>
+										</px>
+									</label>
+								</Connector>
+							</px>
+						</item>
+					</connectors>
+					<RectItem class_id="12" tracking_level="1" version="0" object_id="_8">
+						<Item>
+							<type>65637</type>
+							<x>-1.60000000000000000e+02</x>
+							<y>-2.20000000000000000e+02</y>
+							<rotation>0.00000000000000000e+00</rotation>
+							<movable>1</movable>
+							<visible>1</visible>
+							<snap_to_grid>1</snap_to_grid>
+							<highlight>1</highlight>
+						</Item>
+						<width>1.60000000000000000e+02</width>
+						<height>8.00000000000000000e+01</height>
+						<minimum_width>4.00000000000000000e+01</minimum_width>
+						<minimum_height>4.00000000000000000e+01</minimum_height>
+						<allow_mouse_resize>1</allow_mouse_resize>
+						<allow_mouse_rotate>1</allow_mouse_rotate>
+					</RectItem>
+					<width>1.60000000000000000e+02</width>
+					<height>8.00000000000000000e+01</height>
+					<allow_mouse_resize>1</allow_mouse_resize>
+					<allow_mouse_rotate>1</allow_mouse_rotate>
+				</Node>
+				<label>
+					<px class_id_reference="11" object_id="_9">
+						<Item>
+							<type>65541</type>
+							<x>4.78046875000000000e+01</x>
+							<y>-1.00000000000000000e+01</y>
+							<rotation>0.00000000000000000e+00</rotation>
+							<movable>1</movable>
+							<visible>1</visible>
+							<snap_to_grid>0</snap_to_grid>
+							<highlight>1</highlight>
+						</Item>
+						<text>Operation 1</text>
+						<hasConnectionPoint>1</hasConnectionPoint>
+						<connectionPoint_x>8.00000000000000000e+01</connectionPoint_x>
+						<connectionPoint_y>4.00000000000000000e+01</connectionPoint_y>
+					</px>
+				</label>
+			</px>
+		</item>
+		<item>
+			<px class_id_reference="3" object_id="_10">
+				<Node object_id="_11">
+					<connectors_movable>1</connectors_movable>
+					<connectors_snap_policy>2</connectors_snap_policy>
+					<connectors_snap_to_grid>1</connectors_snap_to_grid>
+					<connectors>
+						<count>2</count>
+						<item_version>1</item_version>
+						<item>
+							<px class_id_reference="8" object_id="_12">
+								<Connector object_id="_13">
+									<Item>
+										<type>65638</type>
+										<x>0.00000000000000000e+00</x>
+										<y>4.00000000000000000e+01</y>
+										<rotation>0.00000000000000000e+00</rotation>
+										<movable>1</movable>
+										<visible>1</visible>
+										<snap_to_grid>1</snap_to_grid>
+										<highlight>1</highlight>
+									</Item>
+									<snap_policy>2</snap_policy>
+									<force_text_direction>0</force_text_direction>
+									<text_direction>0</text_direction>
+									<label>
+										<px class_id_reference="11" object_id="_14">
+											<Item>
+												<type>65541</type>
+												<x>1.50000000000000000e+01</x>
+												<y>4.99218750000000000e+00</y>
+												<rotation>0.00000000000000000e+00</rotation>
+												<movable>1</movable>
+												<visible>1</visible>
+												<snap_to_grid>0</snap_to_grid>
+												<highlight>1</highlight>
+											</Item>
+											<text>in</text>
+											<hasConnectionPoint>1</hasConnectionPoint>
+											<connectionPoint_x>0.00000000000000000e+00</connectionPoint_x>
+											<connectionPoint_y>0.00000000000000000e+00</connectionPoint_y>
+										</px>
+									</label>
+								</Connector>
+							</px>
+						</item>
+						<item>
+							<px class_id_reference="8" object_id="_15">
+								<Connector object_id="_16">
+									<Item>
+										<type>65638</type>
+										<x>1.60000000000000000e+02</x>
+										<y>4.00000000000000000e+01</y>
+										<rotation>0.00000000000000000e+00</rotation>
+										<movable>1</movable>
+										<visible>1</visible>
+										<snap_to_grid>1</snap_to_grid>
+										<highlight>1</highlight>
+									</Item>
+									<snap_policy>2</snap_policy>
+									<force_text_direction>0</force_text_direction>
+									<text_direction>1</text_direction>
+									<label>
+										<px class_id_reference="11" object_id="_17">
+											<Item>
+												<type>65541</type>
+												<x>-3.60156250000000000e+01</x>
+												<y>4.99218750000000000e+00</y>
+												<rotation>0.00000000000000000e+00</rotation>
+												<movable>1</movable>
+												<visible>1</visible>
+												<snap_to_grid>0</snap_to_grid>
+												<highlight>1</highlight>
+											</Item>
+											<text>out</text>
+											<hasConnectionPoint>1</hasConnectionPoint>
+											<connectionPoint_x>0.00000000000000000e+00</connectionPoint_x>
+											<connectionPoint_y>0.00000000000000000e+00</connectionPoint_y>
+										</px>
+									</label>
+								</Connector>
+							</px>
+						</item>
+					</connectors>
+					<RectItem object_id="_18">
+						<Item>
+							<type>65637</type>
+							<x>-1.60000000000000000e+02</x>
+							<y>-1.00000000000000000e+02</y>
+							<rotation>0.00000000000000000e+00</rotation>
+							<movable>1</movable>
+							<visible>1</visible>
+							<snap_to_grid>1</snap_to_grid>
+							<highlight>1</highlight>
+						</Item>
+						<width>1.60000000000000000e+02</width>
+						<height>8.00000000000000000e+01</height>
+						<minimum_width>4.00000000000000000e+01</minimum_width>
+						<minimum_height>4.00000000000000000e+01</minimum_height>
+						<allow_mouse_resize>1</allow_mouse_resize>
+						<allow_mouse_rotate>1</allow_mouse_rotate>
+					</RectItem>
+					<width>1.60000000000000000e+02</width>
+					<height>8.00000000000000000e+01</height>
+					<allow_mouse_resize>1</allow_mouse_resize>
+					<allow_mouse_rotate>1</allow_mouse_rotate>
+				</Node>
+				<label>
+					<px class_id_reference="11" object_id="_19">
+						<Item>
+							<type>65541</type>
+							<x>4.78046875000000000e+01</x>
+							<y>-1.00000000000000000e+01</y>
+							<rotation>0.00000000000000000e+00</rotation>
+							<movable>1</movable>
+							<visible>1</visible>
+							<snap_to_grid>0</snap_to_grid>
+							<highlight>1</highlight>
+						</Item>
+						<text>Operation 2</text>
+						<hasConnectionPoint>1</hasConnectionPoint>
+						<connectionPoint_x>8.00000000000000000e+01</connectionPoint_x>
+						<connectionPoint_y>4.00000000000000000e+01</connectionPoint_y>
+					</px>
+				</label>
+			</px>
+		</item>
+		<item>
+			<px class_id="13" class_name="FlowEnd" tracking_level="1" version="0" object_id="_20">
+				<Operation object_id="_21">
+					<Node object_id="_22">
+						<connectors_movable>1</connectors_movable>
+						<connectors_snap_policy>2</connectors_snap_policy>
+						<connectors_snap_to_grid>1</connectors_snap_to_grid>
+						<connectors>
+							<count>1</count>
+							<item_version>1</item_version>
+							<item>
+								<px class_id_reference="8" object_id="_23">
+									<Connector object_id="_24">
+										<Item>
+											<type>65638</type>
+											<x>2.00000000000000000e+01</x>
+											<y>0.00000000000000000e+00</y>
+											<rotation>0.00000000000000000e+00</rotation>
+											<movable>1</movable>
+											<visible>1</visible>
+											<snap_to_grid>1</snap_to_grid>
+											<highlight>1</highlight>
+										</Item>
+										<snap_policy>2</snap_policy>
+										<force_text_direction>0</force_text_direction>
+										<text_direction>0</text_direction>
+										<label>
+											<px class_id_reference="11" object_id="_25">
+												<Item>
+													<type>65541</type>
+													<x>1.50000000000000000e+01</x>
+													<y>1.00000000000000000e+00</y>
+													<rotation>0.00000000000000000e+00</rotation>
+													<movable>0</movable>
+													<visible>0</visible>
+													<snap_to_grid>0</snap_to_grid>
+													<highlight>1</highlight>
+												</Item>
+												<text></text>
+												<hasConnectionPoint>1</hasConnectionPoint>
+												<connectionPoint_x>0.00000000000000000e+00</connectionPoint_x>
+												<connectionPoint_y>0.00000000000000000e+00</connectionPoint_y>
+											</px>
+										</label>
+									</Connector>
+								</px>
+							</item>
+						</connectors>
+						<RectItem object_id="_26">
+							<Item>
+								<type>65642</type>
+								<x>6.20000000000000000e+02</x>
+								<y>-6.00000000000000000e+01</y>
+								<rotation>0.00000000000000000e+00</rotation>
+								<movable>1</movable>
+								<visible>1</visible>
+								<snap_to_grid>1</snap_to_grid>
+								<highlight>1</highlight>
+							</Item>
+							<width>6.00000000000000000e+01</width>
+							<height>4.00000000000000000e+01</height>
+							<minimum_width>4.00000000000000000e+01</minimum_width>
+							<minimum_height>4.00000000000000000e+01</minimum_height>
+							<allow_mouse_resize>0</allow_mouse_resize>
+							<allow_mouse_rotate>1</allow_mouse_rotate>
+						</RectItem>
+						<width>6.00000000000000000e+01</width>
+						<height>4.00000000000000000e+01</height>
+						<allow_mouse_resize>0</allow_mouse_resize>
+						<allow_mouse_rotate>1</allow_mouse_rotate>
+					</Node>
+					<label>
+						<px class_id_reference="11" object_id="_27">
+							<Item>
+								<type>65541</type>
+								<x>8.43750000000000000e+00</x>
+								<y>-1.00000000000000000e+01</y>
+								<rotation>0.00000000000000000e+00</rotation>
+								<movable>1</movable>
+								<visible>0</visible>
+								<snap_to_grid>0</snap_to_grid>
+								<highlight>1</highlight>
+							</Item>
+							<text>Generic</text>
+							<hasConnectionPoint>1</hasConnectionPoint>
+							<connectionPoint_x>3.00000000000000000e+01</connectionPoint_x>
+							<connectionPoint_y>2.00000000000000000e+01</connectionPoint_y>
+						</px>
+					</label>
+				</Operation>
+			</px>
+		</item>
+		<item>
+			<px class_id="14" class_name="FlowStart" tracking_level="1" version="0" object_id="_28">
+				<Operation object_id="_29">
+					<Node object_id="_30">
+						<connectors_movable>1</connectors_movable>
+						<connectors_snap_policy>2</connectors_snap_policy>
+						<connectors_snap_to_grid>1</connectors_snap_to_grid>
+						<connectors>
+							<count>1</count>
+							<item_version>1</item_version>
+							<item>
+								<px class_id_reference="8" object_id="_31">
+									<Connector object_id="_32">
+										<Item>
+											<type>65638</type>
+											<x>2.00000000000000000e+01</x>
+											<y>0.00000000000000000e+00</y>
+											<rotation>0.00000000000000000e+00</rotation>
+											<movable>1</movable>
+											<visible>1</visible>
+											<snap_to_grid>1</snap_to_grid>
+											<highlight>1</highlight>
+										</Item>
+										<snap_policy>2</snap_policy>
+										<force_text_direction>0</force_text_direction>
+										<text_direction>0</text_direction>
+										<label>
+											<px class_id_reference="11" object_id="_33">
+												<Item>
+													<type>65541</type>
+													<x>1.50000000000000000e+01</x>
+													<y>1.00000000000000000e+00</y>
+													<rotation>0.00000000000000000e+00</rotation>
+													<movable>0</movable>
+													<visible>0</visible>
+													<snap_to_grid>0</snap_to_grid>
+													<highlight>1</highlight>
+												</Item>
+												<text></text>
+												<hasConnectionPoint>1</hasConnectionPoint>
+												<connectionPoint_x>0.00000000000000000e+00</connectionPoint_x>
+												<connectionPoint_y>0.00000000000000000e+00</connectionPoint_y>
+											</px>
+										</label>
+									</Connector>
+								</px>
+							</item>
+						</connectors>
+						<RectItem object_id="_34">
+							<Item>
+								<type>65641</type>
+								<x>-3.20000000000000000e+02</x>
+								<y>-1.80000000000000000e+02</y>
+								<rotation>0.00000000000000000e+00</rotation>
+								<movable>1</movable>
+								<visible>1</visible>
+								<snap_to_grid>1</snap_to_grid>
+								<highlight>1</highlight>
+							</Item>
+							<width>6.00000000000000000e+01</width>
+							<height>4.00000000000000000e+01</height>
+							<minimum_width>4.00000000000000000e+01</minimum_width>
+							<minimum_height>4.00000000000000000e+01</minimum_height>
+							<allow_mouse_resize>0</allow_mouse_resize>
+							<allow_mouse_rotate>1</allow_mouse_rotate>
+						</RectItem>
+						<width>6.00000000000000000e+01</width>
+						<height>4.00000000000000000e+01</height>
+						<allow_mouse_resize>0</allow_mouse_resize>
+						<allow_mouse_rotate>1</allow_mouse_rotate>
+					</Node>
+					<label>
+						<px class_id_reference="11" object_id="_35">
+							<Item>
+								<type>65541</type>
+								<x>8.43750000000000000e+00</x>
+								<y>-1.00000000000000000e+01</y>
+								<rotation>0.00000000000000000e+00</rotation>
+								<movable>1</movable>
+								<visible>0</visible>
+								<snap_to_grid>0</snap_to_grid>
+								<highlight>1</highlight>
+							</Item>
+							<text>Generic</text>
+							<hasConnectionPoint>1</hasConnectionPoint>
+							<connectionPoint_x>3.00000000000000000e+01</connectionPoint_x>
+							<connectionPoint_y>2.00000000000000000e+01</connectionPoint_y>
+						</px>
+					</label>
+				</Operation>
+			</px>
+		</item>
+		<item>
+			<px class_id_reference="14" object_id="_36">
+				<Operation object_id="_37">
+					<Node object_id="_38">
+						<connectors_movable>1</connectors_movable>
+						<connectors_snap_policy>2</connectors_snap_policy>
+						<connectors_snap_to_grid>1</connectors_snap_to_grid>
+						<connectors>
+							<count>1</count>
+							<item_version>1</item_version>
+							<item>
+								<px class_id_reference="8" object_id="_39">
+									<Connector object_id="_40">
+										<Item>
+											<type>65638</type>
+											<x>2.00000000000000000e+01</x>
+											<y>0.00000000000000000e+00</y>
+											<rotation>0.00000000000000000e+00</rotation>
+											<movable>1</movable>
+											<visible>1</visible>
+											<snap_to_grid>1</snap_to_grid>
+											<highlight>1</highlight>
+										</Item>
+										<snap_policy>2</snap_policy>
+										<force_text_direction>0</force_text_direction>
+										<text_direction>0</text_direction>
+										<label>
+											<px class_id_reference="11" object_id="_41">
+												<Item>
+													<type>65541</type>
+													<x>1.50000000000000000e+01</x>
+													<y>1.00000000000000000e+00</y>
+													<rotation>0.00000000000000000e+00</rotation>
+													<movable>0</movable>
+													<visible>0</visible>
+													<snap_to_grid>0</snap_to_grid>
+													<highlight>1</highlight>
+												</Item>
+												<text></text>
+												<hasConnectionPoint>1</hasConnectionPoint>
+												<connectionPoint_x>0.00000000000000000e+00</connectionPoint_x>
+												<connectionPoint_y>0.00000000000000000e+00</connectionPoint_y>
+											</px>
+										</label>
+									</Connector>
+								</px>
+							</item>
+						</connectors>
+						<RectItem object_id="_42">
+							<Item>
+								<type>65641</type>
+								<x>-3.20000000000000000e+02</x>
+								<y>6.00000000000000000e+01</y>
+								<rotation>0.00000000000000000e+00</rotation>
+								<movable>1</movable>
+								<visible>1</visible>
+								<snap_to_grid>1</snap_to_grid>
+								<highlight>1</highlight>
+							</Item>
+							<width>6.00000000000000000e+01</width>
+							<height>4.00000000000000000e+01</height>
+							<minimum_width>4.00000000000000000e+01</minimum_width>
+							<minimum_height>4.00000000000000000e+01</minimum_height>
+							<allow_mouse_resize>0</allow_mouse_resize>
+							<allow_mouse_rotate>1</allow_mouse_rotate>
+						</RectItem>
+						<width>6.00000000000000000e+01</width>
+						<height>4.00000000000000000e+01</height>
+						<allow_mouse_resize>0</allow_mouse_resize>
+						<allow_mouse_rotate>1</allow_mouse_rotate>
+					</Node>
+					<label>
+						<px class_id_reference="11" object_id="_43">
+							<Item>
+								<type>65541</type>
+								<x>8.43750000000000000e+00</x>
+								<y>-1.00000000000000000e+01</y>
+								<rotation>0.00000000000000000e+00</rotation>
+								<movable>1</movable>
+								<visible>0</visible>
+								<snap_to_grid>0</snap_to_grid>
+								<highlight>1</highlight>
+							</Item>
+							<text>Generic</text>
+							<hasConnectionPoint>1</hasConnectionPoint>
+							<connectionPoint_x>3.00000000000000000e+01</connectionPoint_x>
+							<connectionPoint_y>2.00000000000000000e+01</connectionPoint_y>
+						</px>
+					</label>
+				</Operation>
+			</px>
+		</item>
+		<item>
+			<px class_id="15" class_name="OperationDemo1" tracking_level="1" version="0" object_id="_44">
+				<Operation object_id="_45">
+					<Node object_id="_46">
+						<connectors_movable>1</connectors_movable>
+						<connectors_snap_policy>2</connectors_snap_policy>
+						<connectors_snap_to_grid>1</connectors_snap_to_grid>
+						<connectors>
+							<count>4</count>
+							<item_version>1</item_version>
+							<item>
+								<px class_id_reference="8" object_id="_47">
+									<Connector object_id="_48">
+										<Item>
+											<type>65638</type>
+											<x>0.00000000000000000e+00</x>
+											<y>4.00000000000000000e+01</y>
+											<rotation>0.00000000000000000e+00</rotation>
+											<movable>1</movable>
+											<visible>1</visible>
+											<snap_to_grid>1</snap_to_grid>
+											<highlight>1</highlight>
+										</Item>
+										<snap_policy>2</snap_policy>
+										<force_text_direction>0</force_text_direction>
+										<text_direction>0</text_direction>
+										<label>
+											<px class_id_reference="11" object_id="_49">
+												<Item>
+													<type>65541</type>
+													<x>1.50000000000000000e+01</x>
+													<y>4.99218750000000000e+00</y>
+													<rotation>0.00000000000000000e+00</rotation>
+													<movable>1</movable>
+													<visible>1</visible>
+													<snap_to_grid>0</snap_to_grid>
+													<highlight>1</highlight>
+												</Item>
+												<text>in 1</text>
+												<hasConnectionPoint>1</hasConnectionPoint>
+												<connectionPoint_x>0.00000000000000000e+00</connectionPoint_x>
+												<connectionPoint_y>0.00000000000000000e+00</connectionPoint_y>
+											</px>
+										</label>
+									</Connector>
+								</px>
+							</item>
+							<item>
+								<px class_id_reference="8" object_id="_50">
+									<Connector object_id="_51">
+										<Item>
+											<type>65638</type>
+											<x>0.00000000000000000e+00</x>
+											<y>8.00000000000000000e+01</y>
+											<rotation>0.00000000000000000e+00</rotation>
+											<movable>1</movable>
+											<visible>1</visible>
+											<snap_to_grid>1</snap_to_grid>
+											<highlight>1</highlight>
+										</Item>
+										<snap_policy>2</snap_policy>
+										<force_text_direction>0</force_text_direction>
+										<text_direction>0</text_direction>
+										<label>
+											<px class_id_reference="11" object_id="_52">
+												<Item>
+													<type>65541</type>
+													<x>1.50000000000000000e+01</x>
+													<y>4.99218750000000000e+00</y>
+													<rotation>0.00000000000000000e+00</rotation>
+													<movable>1</movable>
+													<visible>1</visible>
+													<snap_to_grid>0</snap_to_grid>
+													<highlight>1</highlight>
+												</Item>
+												<text>in 2</text>
+												<hasConnectionPoint>1</hasConnectionPoint>
+												<connectionPoint_x>0.00000000000000000e+00</connectionPoint_x>
+												<connectionPoint_y>0.00000000000000000e+00</connectionPoint_y>
+											</px>
+										</label>
+									</Connector>
+								</px>
+							</item>
+							<item>
+								<px class_id_reference="8" object_id="_53">
+									<Connector object_id="_54">
+										<Item>
+											<type>65638</type>
+											<x>0.00000000000000000e+00</x>
+											<y>1.20000000000000000e+02</y>
+											<rotation>0.00000000000000000e+00</rotation>
+											<movable>1</movable>
+											<visible>1</visible>
+											<snap_to_grid>1</snap_to_grid>
+											<highlight>1</highlight>
+										</Item>
+										<snap_policy>2</snap_policy>
+										<force_text_direction>0</force_text_direction>
+										<text_direction>0</text_direction>
+										<label>
+											<px class_id_reference="11" object_id="_55">
+												<Item>
+													<type>65541</type>
+													<x>1.50000000000000000e+01</x>
+													<y>4.99218750000000000e+00</y>
+													<rotation>0.00000000000000000e+00</rotation>
+													<movable>1</movable>
+													<visible>1</visible>
+													<snap_to_grid>0</snap_to_grid>
+													<highlight>1</highlight>
+												</Item>
+												<text>in 3</text>
+												<hasConnectionPoint>1</hasConnectionPoint>
+												<connectionPoint_x>0.00000000000000000e+00</connectionPoint_x>
+												<connectionPoint_y>0.00000000000000000e+00</connectionPoint_y>
+											</px>
+										</label>
+									</Connector>
+								</px>
+							</item>
+							<item>
+								<px class_id_reference="8" object_id="_56">
+									<Connector object_id="_57">
+										<Item>
+											<type>65638</type>
+											<x>1.60000000000000000e+02</x>
+											<y>8.00000000000000000e+01</y>
+											<rotation>0.00000000000000000e+00</rotation>
+											<movable>1</movable>
+											<visible>1</visible>
+											<snap_to_grid>1</snap_to_grid>
+											<highlight>1</highlight>
+										</Item>
+										<snap_policy>2</snap_policy>
+										<force_text_direction>0</force_text_direction>
+										<text_direction>1</text_direction>
+										<label>
+											<px class_id_reference="11" object_id="_58">
+												<Item>
+													<type>65541</type>
+													<x>-3.60156250000000000e+01</x>
+													<y>4.99218750000000000e+00</y>
+													<rotation>0.00000000000000000e+00</rotation>
+													<movable>1</movable>
+													<visible>1</visible>
+													<snap_to_grid>0</snap_to_grid>
+													<highlight>1</highlight>
+												</Item>
+												<text>out</text>
+												<hasConnectionPoint>1</hasConnectionPoint>
+												<connectionPoint_x>0.00000000000000000e+00</connectionPoint_x>
+												<connectionPoint_y>0.00000000000000000e+00</connectionPoint_y>
+											</px>
+										</label>
+									</Connector>
+								</px>
+							</item>
+						</connectors>
+						<RectItem object_id="_59">
+							<Item>
+								<type>65640</type>
+								<x>1.20000000000000000e+02</x>
+								<y>-1.40000000000000000e+02</y>
+								<rotation>0.00000000000000000e+00</rotation>
+								<movable>1</movable>
+								<visible>1</visible>
+								<snap_to_grid>1</snap_to_grid>
+								<highlight>1</highlight>
+							</Item>
+							<width>1.60000000000000000e+02</width>
+							<height>1.60000000000000000e+02</height>
+							<minimum_width>4.00000000000000000e+01</minimum_width>
+							<minimum_height>4.00000000000000000e+01</minimum_height>
+							<allow_mouse_resize>1</allow_mouse_resize>
+							<allow_mouse_rotate>1</allow_mouse_rotate>
+						</RectItem>
+						<width>1.60000000000000000e+02</width>
+						<height>1.60000000000000000e+02</height>
+						<allow_mouse_resize>1</allow_mouse_resize>
+						<allow_mouse_rotate>1</allow_mouse_rotate>
+					</Node>
+					<label>
+						<px class_id_reference="11" object_id="_60">
+							<Item>
+								<type>65541</type>
+								<x>5.84375000000000000e+01</x>
+								<y>-1.00000000000000000e+01</y>
+								<rotation>0.00000000000000000e+00</rotation>
+								<movable>1</movable>
+								<visible>1</visible>
+								<snap_to_grid>0</snap_to_grid>
+								<highlight>1</highlight>
+							</Item>
+							<text>Demo 1</text>
+							<hasConnectionPoint>1</hasConnectionPoint>
+							<connectionPoint_x>8.00000000000000000e+01</connectionPoint_x>
+							<connectionPoint_y>8.00000000000000000e+01</connectionPoint_y>
+						</px>
+					</label>
+				</Operation>
+			</px>
+		</item>
+		<item>
+			<px class_id_reference="3" object_id="_61">
+				<Node object_id="_62">
+					<connectors_movable>1</connectors_movable>
+					<connectors_snap_policy>2</connectors_snap_policy>
+					<connectors_snap_to_grid>1</connectors_snap_to_grid>
+					<connectors>
+						<count>3</count>
+						<item_version>1</item_version>
+						<item>
+							<px class_id_reference="8" object_id="_63">
+								<Connector object_id="_64">
+									<Item>
+										<type>65638</type>
+										<x>0.00000000000000000e+00</x>
+										<y>2.00000000000000000e+01</y>
+										<rotation>0.00000000000000000e+00</rotation>
+										<movable>1</movable>
+										<visible>1</visible>
+										<snap_to_grid>1</snap_to_grid>
+										<highlight>1</highlight>
+									</Item>
+									<snap_policy>2</snap_policy>
+									<force_text_direction>0</force_text_direction>
+									<text_direction>0</text_direction>
+									<label>
+										<px class_id_reference="11" object_id="_65">
+											<Item>
+												<type>65541</type>
+												<x>1.50000000000000000e+01</x>
+												<y>4.99218750000000000e+00</y>
+												<rotation>0.00000000000000000e+00</rotation>
+												<movable>1</movable>
+												<visible>1</visible>
+												<snap_to_grid>0</snap_to_grid>
+												<highlight>1</highlight>
+											</Item>
+											<text>in 1</text>
+											<hasConnectionPoint>1</hasConnectionPoint>
+											<connectionPoint_x>0.00000000000000000e+00</connectionPoint_x>
+											<connectionPoint_y>0.00000000000000000e+00</connectionPoint_y>
+										</px>
+									</label>
+								</Connector>
+							</px>
+						</item>
+						<item>
+							<px class_id_reference="8" object_id="_66">
+								<Connector object_id="_67">
+									<Item>
+										<type>65638</type>
+										<x>0.00000000000000000e+00</x>
+										<y>6.00000000000000000e+01</y>
+										<rotation>0.00000000000000000e+00</rotation>
+										<movable>1</movable>
+										<visible>1</visible>
+										<snap_to_grid>1</snap_to_grid>
+										<highlight>1</highlight>
+									</Item>
+									<snap_policy>2</snap_policy>
+									<force_text_direction>0</force_text_direction>
+									<text_direction>0</text_direction>
+									<label>
+										<px class_id_reference="11" object_id="_68">
+											<Item>
+												<type>65541</type>
+												<x>1.50000000000000000e+01</x>
+												<y>4.99218750000000000e+00</y>
+												<rotation>0.00000000000000000e+00</rotation>
+												<movable>1</movable>
+												<visible>1</visible>
+												<snap_to_grid>0</snap_to_grid>
+												<highlight>1</highlight>
+											</Item>
+											<text>in 2</text>
+											<hasConnectionPoint>1</hasConnectionPoint>
+											<connectionPoint_x>0.00000000000000000e+00</connectionPoint_x>
+											<connectionPoint_y>0.00000000000000000e+00</connectionPoint_y>
+										</px>
+									</label>
+								</Connector>
+							</px>
+						</item>
+						<item>
+							<px class_id_reference="8" object_id="_69">
+								<Connector object_id="_70">
+									<Item>
+										<type>65638</type>
+										<x>1.60000000000000000e+02</x>
+										<y>4.00000000000000000e+01</y>
+										<rotation>0.00000000000000000e+00</rotation>
+										<movable>1</movable>
+										<visible>1</visible>
+										<snap_to_grid>1</snap_to_grid>
+										<highlight>1</highlight>
+									</Item>
+									<snap_policy>2</snap_policy>
+									<force_text_direction>0</force_text_direction>
+									<text_direction>1</text_direction>
+									<label>
+										<px class_id_reference="11" object_id="_71">
+											<Item>
+												<type>65541</type>
+												<x>-3.60156250000000000e+01</x>
+												<y>4.99218750000000000e+00</y>
+												<rotation>0.00000000000000000e+00</rotation>
+												<movable>1</movable>
+												<visible>1</visible>
+												<snap_to_grid>0</snap_to_grid>
+												<highlight>1</highlight>
+											</Item>
+											<text>out</text>
+											<hasConnectionPoint>1</hasConnectionPoint>
+											<connectionPoint_x>0.00000000000000000e+00</connectionPoint_x>
+											<connectionPoint_y>0.00000000000000000e+00</connectionPoint_y>
+										</px>
+									</label>
+								</Connector>
+							</px>
+						</item>
+					</connectors>
+					<RectItem object_id="_72">
+						<Item>
+							<type>65637</type>
+							<x>4.00000000000000000e+02</x>
+							<y>-1.00000000000000000e+02</y>
+							<rotation>0.00000000000000000e+00</rotation>
+							<movable>1</movable>
+							<visible>1</visible>
+							<snap_to_grid>1</snap_to_grid>
+							<highlight>1</highlight>
+						</Item>
+						<width>1.60000000000000000e+02</width>
+						<height>8.00000000000000000e+01</height>
+						<minimum_width>4.00000000000000000e+01</minimum_width>
+						<minimum_height>4.00000000000000000e+01</minimum_height>
+						<allow_mouse_resize>1</allow_mouse_resize>
+						<allow_mouse_rotate>1</allow_mouse_rotate>
+					</RectItem>
+					<width>1.60000000000000000e+02</width>
+					<height>8.00000000000000000e+01</height>
+					<allow_mouse_resize>1</allow_mouse_resize>
+					<allow_mouse_rotate>1</allow_mouse_rotate>
+				</Node>
+				<label>
+					<px class_id_reference="11" object_id="_73">
+						<Item>
+							<type>65541</type>
+							<x>4.71328125000000000e+01</x>
+							<y>-1.00000000000000000e+01</y>
+							<rotation>0.00000000000000000e+00</rotation>
+							<movable>1</movable>
+							<visible>1</visible>
+							<snap_to_grid>0</snap_to_grid>
+							<highlight>1</highlight>
+						</Item>
+						<text>Operation 3</text>
+						<hasConnectionPoint>1</hasConnectionPoint>
+						<connectionPoint_x>8.00000000000000000e+01</connectionPoint_x>
+						<connectionPoint_y>4.00000000000000000e+01</connectionPoint_y>
+					</px>
+				</label>
+			</px>
+		</item>
+	</nodes>
+	<nets class_id="16" tracking_level="0" version="0">
+		<count>6</count>
+		<item_version>1</item_version>
+		<item class_id="17" tracking_level="0" version="1">
+			<px class_id="18" tracking_level="1" version="0" object_id="_74">
+				<name></name>
+				<label>
+					<px class_id_reference="11" object_id="_75">
+						<Item>
+							<type>65541</type>
+							<x>0.00000000000000000e+00</x>
+							<y>0.00000000000000000e+00</y>
+							<rotation>0.00000000000000000e+00</rotation>
+							<movable>1</movable>
+							<visible>0</visible>
+							<snap_to_grid>0</snap_to_grid>
+							<highlight>1</highlight>
+						</Item>
+						<text></text>
+						<hasConnectionPoint>1</hasConnectionPoint>
+						<connectionPoint_x>0.00000000000000000e+00</connectionPoint_x>
+						<connectionPoint_y>0.00000000000000000e+00</connectionPoint_y>
+					</px>
+				</label>
+			</px>
+		</item>
+		<item>
+			<px class_id_reference="18" object_id="_76">
+				<name></name>
+				<label>
+					<px class_id_reference="11" object_id="_77">
+						<Item>
+							<type>65541</type>
+							<x>0.00000000000000000e+00</x>
+							<y>0.00000000000000000e+00</y>
+							<rotation>0.00000000000000000e+00</rotation>
+							<movable>1</movable>
+							<visible>0</visible>
+							<snap_to_grid>0</snap_to_grid>
+							<highlight>1</highlight>
+						</Item>
+						<text></text>
+						<hasConnectionPoint>1</hasConnectionPoint>
+						<connectionPoint_x>0.00000000000000000e+00</connectionPoint_x>
+						<connectionPoint_y>0.00000000000000000e+00</connectionPoint_y>
+					</px>
+				</label>
+			</px>
+		</item>
+		<item>
+			<px class_id_reference="18" object_id="_78">
+				<name></name>
+				<label>
+					<px class_id_reference="11" object_id="_79">
+						<Item>
+							<type>65541</type>
+							<x>0.00000000000000000e+00</x>
+							<y>0.00000000000000000e+00</y>
+							<rotation>0.00000000000000000e+00</rotation>
+							<movable>1</movable>
+							<visible>0</visible>
+							<snap_to_grid>0</snap_to_grid>
+							<highlight>1</highlight>
+						</Item>
+						<text></text>
+						<hasConnectionPoint>1</hasConnectionPoint>
+						<connectionPoint_x>0.00000000000000000e+00</connectionPoint_x>
+						<connectionPoint_y>0.00000000000000000e+00</connectionPoint_y>
+					</px>
+				</label>
+			</px>
+		</item>
+		<item>
+			<px class_id_reference="18" object_id="_80">
+				<name></name>
+				<label>
+					<px class_id_reference="11" object_id="_81">
+						<Item>
+							<type>65541</type>
+							<x>0.00000000000000000e+00</x>
+							<y>0.00000000000000000e+00</y>
+							<rotation>0.00000000000000000e+00</rotation>
+							<movable>1</movable>
+							<visible>0</visible>
+							<snap_to_grid>0</snap_to_grid>
+							<highlight>1</highlight>
+						</Item>
+						<text></text>
+						<hasConnectionPoint>1</hasConnectionPoint>
+						<connectionPoint_x>0.00000000000000000e+00</connectionPoint_x>
+						<connectionPoint_y>0.00000000000000000e+00</connectionPoint_y>
+					</px>
+				</label>
+			</px>
+		</item>
+		<item>
+			<px class_id_reference="18" object_id="_82">
+				<name></name>
+				<label>
+					<px class_id_reference="11" object_id="_83">
+						<Item>
+							<type>65541</type>
+							<x>0.00000000000000000e+00</x>
+							<y>0.00000000000000000e+00</y>
+							<rotation>0.00000000000000000e+00</rotation>
+							<movable>1</movable>
+							<visible>0</visible>
+							<snap_to_grid>0</snap_to_grid>
+							<highlight>1</highlight>
+						</Item>
+						<text></text>
+						<hasConnectionPoint>1</hasConnectionPoint>
+						<connectionPoint_x>0.00000000000000000e+00</connectionPoint_x>
+						<connectionPoint_y>0.00000000000000000e+00</connectionPoint_y>
+					</px>
+				</label>
+			</px>
+		</item>
+		<item>
+			<px class_id_reference="18" object_id="_84">
+				<name></name>
+				<label>
+					<px class_id_reference="11" object_id="_85">
+						<Item>
+							<type>65541</type>
+							<x>0.00000000000000000e+00</x>
+							<y>0.00000000000000000e+00</y>
+							<rotation>0.00000000000000000e+00</rotation>
+							<movable>1</movable>
+							<visible>0</visible>
+							<snap_to_grid>0</snap_to_grid>
+							<highlight>1</highlight>
+						</Item>
+						<text></text>
+						<hasConnectionPoint>1</hasConnectionPoint>
+						<connectionPoint_x>0.00000000000000000e+00</connectionPoint_x>
+						<connectionPoint_y>0.00000000000000000e+00</connectionPoint_y>
+					</px>
+				</label>
+			</px>
+		</item>
+	</nets>
+	<nets_wire class_id="19" tracking_level="0" version="0">
+		<count>6</count>
+		<item_version>0</item_version>
+		<item class_id="20" tracking_level="0" version="0">
+			<first>
+				<px class_id_reference="18" object_id_reference="_76"></px>
+			</first>
+			<second class_id="21" tracking_level="0" version="0">
+				<count>1</count>
+				<item_version>1</item_version>
+				<item class_id="22" tracking_level="0" version="1">
+					<px class_id="24" class_name="FancyWire" tracking_level="1" version="0" object_id="_86">
+						<QSchematic::Items::WireRoundedCorners class_id="25" tracking_level="1" version="0" object_id="_87">
+							<Wire class_id="23" tracking_level="1" version="0" object_id="_88">
+								<Item>
+									<type>65639</type>
+									<x>0.00000000000000000e+00</x>
+									<y>-2.00000000000000000e+01</y>
+									<rotation>0.00000000000000000e+00</rotation>
+									<movable>1</movable>
+									<visible>1</visible>
+									<snap_to_grid>1</snap_to_grid>
+									<highlight>1</highlight>
+								</Item>
+								<points_x>
+									<count>2</count>
+									<item_version>0</item_version>
+									<item>0</item>
+									<item>120</item>
+								</points_x>
+								<points_y>
+									<count>2</count>
+									<item_version>0</item_version>
+									<item>-60</item>
+									<item>-60</item>
+								</points_y>
+							</Wire>
+						</QSchematic::Items::WireRoundedCorners>
+					</px>
+				</item>
+			</second>
+		</item>
+		<item>
+			<first>
+				<px class_id_reference="18" object_id_reference="_74"></px>
+			</first>
+			<second>
+				<count>2</count>
+				<item_version>1</item_version>
+				<item>
+					<px class_id_reference="24" object_id="_89">
+						<QSchematic::Items::WireRoundedCorners object_id="_90">
+							<Wire object_id="_91">
+								<Item>
+									<type>65639</type>
+									<x>-3.60000000000000000e+02</x>
+									<y>-1.80000000000000000e+02</y>
+									<rotation>0.00000000000000000e+00</rotation>
+									<movable>1</movable>
+									<visible>1</visible>
+									<snap_to_grid>1</snap_to_grid>
+									<highlight>1</highlight>
+								</Item>
+								<points_x>
+									<count>2</count>
+									<item_version>0</item_version>
+									<item>-300</item>
+									<item>-160</item>
+								</points_x>
+								<points_y>
+									<count>2</count>
+									<item_version>0</item_version>
+									<item>-180</item>
+									<item>-180</item>
+								</points_y>
+							</Wire>
+						</QSchematic::Items::WireRoundedCorners>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="24" object_id="_92">
+						<QSchematic::Items::WireRoundedCorners object_id="_93">
+							<Wire object_id="_94">
+								<Item>
+									<type>65639</type>
+									<x>-2.80000000000000000e+02</x>
+									<y>-1.80000000000000000e+02</y>
+									<rotation>0.00000000000000000e+00</rotation>
+									<movable>1</movable>
+									<visible>1</visible>
+									<snap_to_grid>1</snap_to_grid>
+									<highlight>1</highlight>
+								</Item>
+								<points_x>
+									<count>3</count>
+									<item_version>0</item_version>
+									<item>-280</item>
+									<item>-280</item>
+									<item>-160</item>
+								</points_x>
+								<points_y>
+									<count>3</count>
+									<item_version>0</item_version>
+									<item>-180</item>
+									<item>-60</item>
+									<item>-60</item>
+								</points_y>
+							</Wire>
+						</QSchematic::Items::WireRoundedCorners>
+					</px>
+				</item>
+			</second>
+		</item>
+		<item>
+			<first>
+				<px class_id_reference="18" object_id_reference="_84"></px>
+			</first>
+			<second>
+				<count>1</count>
+				<item_version>1</item_version>
+				<item>
+					<px class_id_reference="24" object_id="_95">
+						<QSchematic::Items::WireRoundedCorners object_id="_96">
+							<Wire object_id="_97">
+								<Item>
+									<type>65639</type>
+									<x>5.60000000000000000e+02</x>
+									<y>-6.00000000000000000e+01</y>
+									<rotation>0.00000000000000000e+00</rotation>
+									<movable>1</movable>
+									<visible>1</visible>
+									<snap_to_grid>1</snap_to_grid>
+									<highlight>1</highlight>
+								</Item>
+								<points_x>
+									<count>2</count>
+									<item_version>0</item_version>
+									<item>560</item>
+									<item>640</item>
+								</points_x>
+								<points_y>
+									<count>2</count>
+									<item_version>0</item_version>
+									<item>-60</item>
+									<item>-60</item>
+								</points_y>
+							</Wire>
+						</QSchematic::Items::WireRoundedCorners>
+					</px>
+				</item>
+			</second>
+		</item>
+		<item>
+			<first>
+				<px class_id_reference="18" object_id_reference="_82"></px>
+			</first>
+			<second>
+				<count>1</count>
+				<item_version>1</item_version>
+				<item>
+					<px class_id_reference="24" object_id="_98">
+						<QSchematic::Items::WireRoundedCorners object_id="_99">
+							<Wire object_id="_100">
+								<Item>
+									<type>65639</type>
+									<x>2.80000000000000000e+02</x>
+									<y>-6.00000000000000000e+01</y>
+									<rotation>0.00000000000000000e+00</rotation>
+									<movable>1</movable>
+									<visible>1</visible>
+									<snap_to_grid>1</snap_to_grid>
+									<highlight>1</highlight>
+								</Item>
+								<points_x>
+									<count>4</count>
+									<item_version>0</item_version>
+									<item>280</item>
+									<item>340</item>
+									<item>340</item>
+									<item>400</item>
+								</points_x>
+								<points_y>
+									<count>4</count>
+									<item_version>0</item_version>
+									<item>-60</item>
+									<item>-60</item>
+									<item>-80</item>
+									<item>-80</item>
+								</points_y>
+							</Wire>
+						</QSchematic::Items::WireRoundedCorners>
+					</px>
+				</item>
+			</second>
+		</item>
+		<item>
+			<first>
+				<px class_id_reference="18" object_id_reference="_78"></px>
+			</first>
+			<second>
+				<count>1</count>
+				<item_version>1</item_version>
+				<item>
+					<px class_id_reference="24" object_id="_101">
+						<QSchematic::Items::WireRoundedCorners object_id="_102">
+							<Wire object_id="_103">
+								<Item>
+									<type>65639</type>
+									<x>0.00000000000000000e+00</x>
+									<y>-1.80000000000000000e+02</y>
+									<rotation>0.00000000000000000e+00</rotation>
+									<movable>1</movable>
+									<visible>1</visible>
+									<snap_to_grid>1</snap_to_grid>
+									<highlight>1</highlight>
+								</Item>
+								<points_x>
+									<count>4</count>
+									<item_version>0</item_version>
+									<item>0</item>
+									<item>60</item>
+									<item>60</item>
+									<item>120</item>
+								</points_x>
+								<points_y>
+									<count>4</count>
+									<item_version>0</item_version>
+									<item>-180</item>
+									<item>-180</item>
+									<item>-100</item>
+									<item>-100</item>
+								</points_y>
+							</Wire>
+						</QSchematic::Items::WireRoundedCorners>
+					</px>
+				</item>
+			</second>
+		</item>
+		<item>
+			<first>
+				<px class_id_reference="18" object_id_reference="_80"></px>
+			</first>
+			<second>
+				<count>2</count>
+				<item_version>1</item_version>
+				<item>
+					<px class_id_reference="24" object_id="_104">
+						<QSchematic::Items::WireRoundedCorners object_id="_105">
+							<Wire object_id="_106">
+								<Item>
+									<type>65639</type>
+									<x>-3.20000000000000000e+02</x>
+									<y>2.20000000000000000e+02</y>
+									<rotation>0.00000000000000000e+00</rotation>
+									<movable>1</movable>
+									<visible>1</visible>
+									<snap_to_grid>1</snap_to_grid>
+									<highlight>1</highlight>
+								</Item>
+								<points_x>
+									<count>4</count>
+									<item_version>0</item_version>
+									<item>-300</item>
+									<item>80</item>
+									<item>80</item>
+									<item>120</item>
+								</points_x>
+								<points_y>
+									<count>4</count>
+									<item_version>0</item_version>
+									<item>60</item>
+									<item>60</item>
+									<item>-20</item>
+									<item>-20</item>
+								</points_y>
+							</Wire>
+						</QSchematic::Items::WireRoundedCorners>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="24" object_id="_107">
+						<QSchematic::Items::WireRoundedCorners object_id="_108">
+							<Wire object_id="_109">
+								<Item>
+									<type>65639</type>
+									<x>8.00000000000000000e+01</x>
+									<y>2.20000000000000000e+02</y>
+									<rotation>0.00000000000000000e+00</rotation>
+									<movable>1</movable>
+									<visible>1</visible>
+									<snap_to_grid>1</snap_to_grid>
+									<highlight>1</highlight>
+								</Item>
+								<points_x>
+									<count>4</count>
+									<item_version>0</item_version>
+									<item>80</item>
+									<item>360</item>
+									<item>360</item>
+									<item>400</item>
+								</points_x>
+								<points_y>
+									<count>4</count>
+									<item_version>0</item_version>
+									<item>60</item>
+									<item>60</item>
+									<item>-40</item>
+									<item>-40</item>
+								</points_y>
+							</Wire>
+						</QSchematic::Items::WireRoundedCorners>
+					</px>
+				</item>
+			</second>
+		</item>
+	</nets_wire>
+</scene>
+</boost_serialization>
+

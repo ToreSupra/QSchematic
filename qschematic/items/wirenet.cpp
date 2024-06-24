@@ -2,9 +2,14 @@
 #include "wirenet.hpp"
 #include "wire.hpp"
 #include "label.hpp"
-#include "itemfactory.hpp"
 #include "../scene.hpp"
 #include "../utils.hpp"
+
+#include <boost/serialization/shared_ptr.hpp>
+#include <boost/archive/binary_oarchive.hpp>
+#include <boost/archive/binary_iarchive.hpp>
+#include <boost/archive/xml_oarchive.hpp>
+#include <boost/archive/xml_iarchive.hpp>
 
 #include <QVector2D>
 
@@ -35,65 +40,42 @@ WireNet::~WireNet()
         dissociate_item(_label);
 }
 
-gpds::container WireNet::to_container() const
+template void WireNet::serialize<boost::archive::binary_oarchive>(boost::archive::binary_oarchive&, const unsigned int);
+template void WireNet::serialize<boost::archive::binary_iarchive>(boost::archive::binary_iarchive&, const unsigned int);
+template void WireNet::serialize<boost::archive::xml_oarchive>(boost::archive::xml_oarchive&, const unsigned int);
+template void WireNet::serialize<boost::archive::xml_iarchive>(boost::archive::xml_iarchive&, const unsigned int);
+
+template <class Archive>
+void WireNet::save(Archive& ar, const unsigned int version) const
 {
-    // Wires
-    gpds::container wiresContainer;
-    for (const auto& wire : wires()) {
-        if (auto wire_net = std::dynamic_pointer_cast<Wire>(wire))
-        {
-            wiresContainer.add_value("wire", wire_net->to_container());
-        }
-    }
+    Q_UNUSED(version)
 
     // Root
-    gpds::container root;
-    root.add_value("name", name().toStdString() );
+    std::string s = name().toStdString();
+    ar& boost::serialization::make_nvp("name", s);
     // The coordinates of the label need to be in the scene space
     if (_label->parentItem()) {
         _label->moveBy(QVector2D(_label->parentItem()->pos()));
     }
-    root.add_value("label", _label->to_container());
+    ar& boost::serialization::make_nvp("label", _label);
     // Move the label back to the correct position
     if (_label->parentItem()) {
         _label->moveBy(-QVector2D(_label->parentItem()->pos()));
     }
-    root.add_value("wires", wiresContainer);
-
-    return root;
 }
 
-void WireNet::from_container(const gpds::container& container)
+template<class Archive>
+void WireNet::load(Archive& ar, const unsigned int version)
 {
-    Q_ASSERT(_scene);
+    Q_UNUSED(version)
+
     // Root
-    set_name(QString::fromStdString(container.get_value<std::string>("name").value_or("")));
+    std::string name;
+    ar& boost::serialization::make_nvp("name", name);
+    set_name(QString::fromStdString(name));
 
     // Label
-    if (auto labelContainer = container.get_value<gpds::container*>("label").value_or(nullptr)) {
-        _label->from_container(*labelContainer);
-    }
-
-    // Wires
-    {
-        const gpds::container& wiresContainer = *container.get_value<gpds::container*>("wires").value();
-        for (const gpds::container* wireContainer : wiresContainer.get_values<gpds::container*>("wire")) {
-            Q_ASSERT(wireContainer);
-
-            auto newWire = Items::Factory::instance().from_container(*wireContainer);
-            auto sharedNewWire = std::dynamic_pointer_cast<Wire>( newWire );
-            if (!sharedNewWire) {
-                continue;
-            }
-            sharedNewWire->from_container(*wireContainer);
-            addWire(sharedNewWire);
-            if (!_scene) {
-                qCritical("WireNet::from_container(): The scene has not been set.");
-                return;
-            }
-            _scene->addItem(sharedNewWire);
-        }
-    }
+    ar& boost::serialization::make_nvp("label", _label);
 }
 
 bool WireNet::addWire(const std::shared_ptr<wire>& wire)

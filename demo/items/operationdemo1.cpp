@@ -29,20 +29,14 @@ OperationDemo1::OperationDemo1(QGraphicsItem* parent) :
     }
 }
 
-gpds::container OperationDemo1::to_container() const
-{
-    // Root
-    gpds::container root;
-    addItemTypeIdToContainer(root);
-    root.add_value("operation", Operation::to_container());
+BOOST_CLASS_EXPORT_IMPLEMENT(OperationDemo1)
 
-    return root;
-}
-
-void OperationDemo1::from_container(const gpds::container& container)
+template<class Archive>
+void OperationDemo1::serialize(Archive& ar, const unsigned int version)
 {
-    // Root
-    Operation::from_container(*container.get_value<gpds::container*>("operation").value());
+    Q_UNUSED(version)
+
+    ar & BOOST_SERIALIZATION_BASE_OBJECT_NVP(Operation);
 }
 
 std::shared_ptr<QSchematic::Items::Item> OperationDemo1::deepCopy() const

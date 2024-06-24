@@ -4,6 +4,8 @@
 
 #include <qschematic/items/node.hpp>
 
+#include <boost/serialization/split_member.hpp>
+
 namespace QSchematic::Items
 {
     class Label;
@@ -18,8 +20,12 @@ public:
     explicit Operation(int type = ::ItemType::OperationType, QGraphicsItem* parent = nullptr);
     ~Operation() override;
 
-    gpds::container to_container() const override;
-    void from_container(const gpds::container& container) override;
+    friend class boost::serialization::access;
+    template<class Archive>
+    void save(Archive& ar, const unsigned int version) const;
+    template<class Archive>
+    void load(Archive& ar, const unsigned int version);
+    BOOST_SERIALIZATION_SPLIT_MEMBER()
     std::shared_ptr<QSchematic::Items::Item> deepCopy() const override;
     std::unique_ptr<QWidget> popup() const override;
     void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
@@ -36,3 +42,5 @@ protected:
 private:
     std::shared_ptr<QSchematic::Items::Label> _label;
 };
+
+BOOST_CLASS_EXPORT_KEY(Operation)

@@ -4,7 +4,15 @@
 #include "../types.hpp"
 #include "../settings.hpp"
 
-#include <gpds/serialize.hpp>
+#include <boost/serialization/access.hpp>
+#include <boost/serialization/split_member.hpp>
+#include <boost/serialization/export.hpp>
+#include <boost/serialization/assume_abstract.hpp>
+#include <boost/archive/binary_iarchive.hpp>
+#include <boost/archive/binary_oarchive.hpp>
+#include <boost/archive/xml_iarchive.hpp>
+#include <boost/archive/xml_oarchive.hpp>
+
 #include <QDebug>
 #include <QGraphicsObject>
 #include <QWidget>
@@ -21,7 +29,6 @@ namespace QSchematic::Items
 
     class Item :
         public QGraphicsObject,
-        public gpds::serialize,
         public std::enable_shared_from_this<Item>
     {
         Q_OBJECT
@@ -91,12 +98,12 @@ namespace QSchematic::Items
         }
         /// @}
 
-        [[nodiscard]]
-        gpds::container
-        to_container() const override;
-
-        void
-        from_container(const gpds::container& container) override;
+        friend class ::boost::serialization::access;
+        template<class Archive>
+        void save(Archive& ar, const unsigned int version) const;
+        template<class Archive>
+        void load(Archive& ar, const unsigned int version);
+        BOOST_SERIALIZATION_SPLIT_MEMBER()
 
         [[nodiscard]]
         virtual
@@ -247,9 +254,6 @@ namespace QSchematic::Items
         void
         copyAttributes(Item& dest) const;
 
-        void
-        addItemTypeIdToContainer(gpds::container& container) const;
-
         [[nodiscard]]
         bool
         isHighlighted() const;
@@ -270,5 +274,7 @@ namespace QSchematic::Items
         QPointF _oldPos;
         qreal _oldRot;
     };
+
+    BOOST_SERIALIZATION_ASSUME_ABSTRACT(Item)
 
 }

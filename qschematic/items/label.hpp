@@ -4,6 +4,8 @@
 
 #include <QFont>
 
+#include <boost/serialization/export.hpp>
+
 namespace QSchematic::Items
 {
 
@@ -23,8 +25,12 @@ namespace QSchematic::Items
         Label(int type = Item::LabelType, QGraphicsItem* parent = nullptr);
         ~Label() override = default;
 
-        gpds::container to_container() const override;
-        void from_container(const gpds::container& container) override;
+        friend class ::boost::serialization::access;
+        template<class Archive>
+        void save(Archive& ar, const unsigned int version) const;
+        template<class Archive>
+        void load(Archive& ar, const unsigned int version);
+        BOOST_SERIALIZATION_SPLIT_MEMBER()
         std::shared_ptr<Item> deepCopy() const override;
 
         QRectF boundingRect() const final;
@@ -55,3 +61,5 @@ namespace QSchematic::Items
     };
 
 }
+
+BOOST_CLASS_EXPORT_KEY(QSchematic::Items::Label)

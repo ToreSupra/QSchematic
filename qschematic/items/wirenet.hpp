@@ -3,7 +3,9 @@
 #include "../wire_system/line.hpp"
 #include "../wire_system/net.hpp"
 
-#include <gpds/serialize.hpp>
+#include <boost/serialization/access.hpp>
+#include <boost/serialization/split_member.hpp>
+
 #include <QObject>
 #include <QList>
 
@@ -31,7 +33,6 @@ namespace QSchematic::Items
     // ToDo: Technically, this class does not belong into the `Items` namespace
     class WireNet :
         public QObject,
-        public gpds::serialize,
         public wire_system::net
     {
         Q_OBJECT
@@ -41,8 +42,12 @@ namespace QSchematic::Items
         WireNet(QObject* parent = nullptr);
         ~WireNet()  override;
 
-        gpds::container to_container() const override;
-        void from_container(const gpds::container& container) override;
+        friend class ::boost::serialization::access;
+        template<class Archive>
+        void save(Archive& ar, const unsigned int version) const;
+        template<class Archive>
+        void load(Archive& ar, const unsigned int version);
+        BOOST_SERIALIZATION_SPLIT_MEMBER()
 
         bool addWire(const std::shared_ptr<wire>& wire) override;
         bool removeWire(const std::shared_ptr<wire> wire) override;

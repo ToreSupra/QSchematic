@@ -18,6 +18,8 @@ const int DEFAULT_HEIGHT         = 240;
 const int DEFAULT_MINIMUM_WIDTH  = 40;
 const int DEFAULT_MINIMUM_HEIGHT = 40;
 
+BOOST_CLASS_EXPORT_IMPLEMENT(QSchematic::Items::RectItem)
+
 using namespace QSchematic::Items;
 
 RectItem::RectItem(int type, QGraphicsItem* parent) :
@@ -30,31 +32,75 @@ RectItem::RectItem(int type, QGraphicsItem* parent) :
 {
 }
 
-gpds::container
-RectItem::to_container() const
-{
-    // Root
-    gpds::container root;
-    addItemTypeIdToContainer(root);
-    root.add_value("item", Item::to_container());
-    root.add_value("width", size().width());
-    root.add_value("height", size().height());
-    root.add_value("minimum_width", _minimumSize.width());
-    root.add_value("minimum_height", _minimumSize.height());
-    root.add_value("allow_mouse_resize", allowMouseResize());
-    root.add_value("allow_mouse_rotate", allowMouseRotate());
+template void RectItem::serialize<boost::archive::binary_oarchive>(boost::archive::binary_oarchive& ar, const unsigned int version);
+template void RectItem::serialize<boost::archive::binary_iarchive>(boost::archive::binary_iarchive& ar, const unsigned int version);
+template void RectItem::serialize<boost::archive::xml_oarchive>(boost::archive::xml_oarchive& ar, const unsigned int version);
+template void RectItem::serialize<boost::archive::xml_iarchive>(boost::archive::xml_iarchive& ar, const unsigned int version);
 
-    return root;
+namespace boost {
+    namespace serialization {
+        template<class Archive>
+        void save_construct_data(Archive& ar, const QSchematic::Items::RectItem* t, const unsigned int file_version)
+        {
+            int tmp = t->type();
+            ar << boost::serialization::make_nvp("rectitem_type", tmp);
+        }
+
+        template<class Archive>
+        void load_construct_data(Archive& ar, QSchematic::Items::RectItem* t, const unsigned int file_version)
+        {
+            int tmp;
+            ar >> boost::serialization::make_nvp("rectitem_type", tmp);
+            ::new(t)QSchematic::Items::RectItem(tmp);
+        }
+    }
 }
 
-void RectItem::from_container(const gpds::container& container)
+template<class Archive>
+void RectItem::save(Archive& ar, const unsigned int version) const
 {
+    Q_UNUSED(version)
+
     // Root
-    Item::from_container(*container.get_value<gpds::container*>("item").value());
-    setSize(container.get_value<double>("width").value_or(0), container.get_value<double>("height").value_or(0));
-    setMinimumSize(QSizeF{container.get_value<double>("minimum_width").value_or(0), container.get_value<double>("minimum_height").value_or(0)});
-    setAllowMouseResize(container.get_value<bool>("allow_mouse_resize").value_or(true));
-    setAllowMouseRotate(container.get_value<bool>("allow_mouse_rotate").value_or(true));
+    ar & BOOST_SERIALIZATION_BASE_OBJECT_NVP(Item);
+    qreal w = size().width();
+    ar & boost::serialization::make_nvp("width", w);
+    qreal h = size().height();
+    ar & boost::serialization::make_nvp("height", h);
+    qreal mw = _minimumSize.width();
+    ar & boost::serialization::make_nvp("minimum_width", mw);
+    qreal mh = _minimumSize.height();
+    ar & boost::serialization::make_nvp("minimum_height", mh);
+    bool amr = allowMouseResize();
+    ar & boost::serialization::make_nvp("allow_mouse_resize", amr);
+    bool amrot = allowMouseRotate();
+    ar & boost::serialization::make_nvp("allow_mouse_rotate", amrot);
+}
+
+template<class Archive>
+void RectItem::load(Archive& ar, const unsigned int version)
+{
+    Q_UNUSED(version)
+
+    // Root
+    ar & BOOST_SERIALIZATION_BASE_OBJECT_NVP(Item);
+    qreal w;
+    ar & boost::serialization::make_nvp("width", w);
+    qreal h;
+    ar & boost::serialization::make_nvp("height", h);
+    qreal mw;
+    ar & boost::serialization::make_nvp("minimum_width", mw);
+    qreal mh;
+    ar & boost::serialization::make_nvp("minimum_height", mh);
+    bool amr;
+    ar & boost::serialization::make_nvp("allow_mouse_resize", amr);
+    bool amrot;
+    ar & boost::serialization::make_nvp("allow_mouse_rotate", amrot);
+
+    setSize(w, h);
+    setMinimumSize(QSizeF(mw, mh));
+    setAllowMouseResize(amr);
+    setAllowMouseRotate(amrot);
 }
 
 std::shared_ptr<Item> RectItem::deepCopy() const

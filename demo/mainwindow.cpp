@@ -1,17 +1,20 @@
 #include "mainwindow.hpp"
-#include "items/customitemfactory.hpp"
 #include "items/operation.hpp"
 #include "items/operationconnector.hpp"
 #include "items/fancywire.hpp"
 #include "library/widget.hpp"
 #include "netlist/widget.hpp"
 
-#include <gpds/archiver_xml.hpp>
+#include <boost/archive/binary_iarchive.hpp>
+#include <boost/archive/binary_oarchive.hpp>
+#include <boost/archive/xml_iarchive.hpp>
+#include <boost/archive/xml_oarchive.hpp>
+#include <fstream>
+
 #include <qschematic/scene.hpp>
 #include <qschematic/view.hpp>
 #include <qschematic/commands/item_add.hpp>
 #include <qschematic/items/node.hpp>
-#include <qschematic/items/itemfactory.hpp>
 #include <qschematic/items/widget.hpp>
 #include <qschematic/netlist.hpp>
 #include <qschematic/netlistgenerator.hpp>
@@ -39,15 +42,11 @@
 #include <memory>
 #include <sstream>
 
-const QString FILE_FILTERS = "XML (*.xml)";
+const QString FILE_FILTERS = "Data (*.dat);;XML (*.xml)";
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    // Setup the custom item factory
-    auto func = std::bind(&CustomItemFactory::from_container, std::placeholders::_1);
-    QSchematic::Items::Factory::instance().setCustomItemsFactory(func);
-
     // Settings
     _settings.debug = false;
     _settings.showGrid = false;
@@ -182,10 +181,19 @@ bool MainWindow::save()
     if (path.empty())
         return false;
 
-    // Serialize with GPDS
-    const auto& [success, message] = gpds::to_file<gpds::archiver_xml>(path, *_scene);
-    if (!success) {
-        qWarning() << "could not save to file: " << QString::fromStdString(message);
+    // Serialize with Boost
+    std::ofstream ofs(path, std::ios::binary);
+    assert(ofs.good());
+
+    if (path.extension() == ".dat") {
+        boost::archive::binary_oarchive oa(ofs, boost::archive::archive_flags::no_header);
+        oa& boost::serialization::make_nvp("scene", *_scene);
+    }
+    else if (path.extension() == ".xml") {
+        boost::archive::xml_oarchive oa(ofs);
+        oa& boost::serialization::make_nvp("scene", *_scene);
+    }
+    else {
         return false;
     }
 
@@ -195,18 +203,26 @@ bool MainWindow::save()
 bool MainWindow::load()
 {
     // Prompt for a path
-    QString path = QFileDialog::getOpenFileName(this, "Load from file", QDir::homePath(), FILE_FILTERS);
-    if (path.isEmpty())
+    const std::filesystem::path path = QFileDialog::getOpenFileName(this, "Load from file", QDir::homePath(), FILE_FILTERS).toStdString();
+    if (path.empty())
         return false;
 
-    return load(path);
+    // Get rid of everything existing
+    _scene->clear();
+
+    if (path.extension() == ".dat") {
+        return load(QString::fromStdString(path.string()));
+	}
+    else if (path.extension() == ".xml") {
+        return loadXml(QString::fromStdString(path.string()));
+    }
+    else {
+        return false;
+    }
 }
 
 bool MainWindow::load(const QString& filepath)
 {
-    // Note: We don't use gpds::from_file() in here because we're potentially loading demo files from Qt's resource
-    //       system. In such a case, those files can't be accessed via std::filesystem::path.
-
     // Get rid of everything existing
     _scene->clear();
 
@@ -217,16 +233,32 @@ bool MainWindow::load(const QString& filepath)
         return false;
     std::stringstream stream;
     stream << file.readAll().data();
+    assert(stream.good());
 
     // Archiver
-    const auto& [success, message] = gpds::from_stream<gpds::archiver_xml>(stream, *_scene, QSchematic::Scene::gpds_name);
-    if (!success) {
-        qDebug() << "MainWindow::load(): Could not load scene: " << QString::fromStdString(message);
-        return false;
-    }
+    boost::archive::binary_iarchive ia(stream, boost::archive::archive_flags::no_header);
+    ia & boost::serialization::make_nvp("scene", *_scene);
 
-    // Clean up
-    file.close();
+    return true;
+}
+
+bool MainWindow::loadXml(const QString& filepath)
+{
+    // Get rid of everything existing
+    _scene->clear();
+
+    // Open the file
+    QFile file(filepath);
+    file.open(QFile::ReadOnly);
+    if (!file.isOpen())
+        return false;
+    std::stringstream stream;
+    stream << file.readAll().data();
+    assert(stream.good());
+
+    // Archiver
+    boost::archive::xml_iarchive ia(stream);
+    ia & boost::serialization::make_nvp("scene", *_scene);
 
     return true;
 }
@@ -384,7 +416,7 @@ void MainWindow::demo()
     _scene->clear();
     _scene->setSceneRect(-500, -500, 3000, 3000);
 
-    load(":/demo_01.xml");
+    loadXml(":/demo_01.xml");
 
     generateNetlist();
 }

@@ -45,31 +45,56 @@ Item::~Item()
     Q_ASSERT(weakPtr().expired());
 }
 
-gpds::container Item::to_container() const
-{
-    // Root
-    gpds::container root;
-    addItemTypeIdToContainer(root);
-    root.add_value("x", posX());
-    root.add_value("y", posY());
-    root.add_value("rotation", rotation()).add_attribute("unit", "degrees").add_attribute("direction", "cw");
-    root.add_value("movable", isMovable());
-    root.add_value("visible", isVisible());
-    root.add_value("snap_to_grid", snapToGrid());
-    root.add_value("highlight", highlightEnabled());
+template void Item::serialize<boost::archive::binary_oarchive>(boost::archive::binary_oarchive& ar, const unsigned int version);
+template void Item::serialize<boost::archive::binary_iarchive>(boost::archive::binary_iarchive& ar, const unsigned int version);
+template void Item::serialize<boost::archive::xml_oarchive>(boost::archive::xml_oarchive& ar, const unsigned int version);
+template void Item::serialize<boost::archive::xml_iarchive>(boost::archive::xml_iarchive& ar, const unsigned int version);
 
-    return root;
+template<class Archive>
+void Item::save(Archive& ar, const unsigned int version) const
+{
+    Q_UNUSED(version)
+
+    ar & boost::serialization::make_nvp("type", _type);
+    qreal x = posX();
+    ar & boost::serialization::make_nvp("x", x);
+    qreal y = posY();
+    ar & boost::serialization::make_nvp("y", y);
+    qreal rot = this->rotation();
+    ar & boost::serialization::make_nvp("rotation", rot);
+    bool mov = isMovable();
+    ar & boost::serialization::make_nvp("movable", mov);
+    bool vis = isVisible();
+    ar & boost::serialization::make_nvp("visible", vis);
+    bool stg = this->snapToGrid();
+    ar & boost::serialization::make_nvp("snap_to_grid", stg);
+    bool he = this->highlightEnabled();
+    ar & boost::serialization::make_nvp("highlight", he);
 }
 
-void Item::from_container(const gpds::container& container)
+template<class Archive>
+void Item::load(Archive& ar, const unsigned int version)
 {
-    setPosX(container.get_value<double>("x").value_or(0));
-    setPosY(container.get_value<double>("y").value_or(0));
-    setRotation(container.get_value<double>("rotation").value_or(0));
-    setMovable(container.get_value<bool>("movable").value_or(true));
-    setVisible(container.get_value<bool>("visible").value_or(true));
-    setSnapToGrid(container.get_value<bool>("snap_to_grid").value_or(true));
-    setHighlightEnabled(container.get_value<bool>("highlight").value_or(false));
+    Q_UNUSED(version)
+
+    qreal x, y, rotation;
+    bool movable, visible, snapToGrid, highlightEnabled;
+
+    ar & boost::serialization::make_nvp("type", _type);
+    ar & boost::serialization::make_nvp("x", x);
+    ar & boost::serialization::make_nvp("y", y);
+    ar & boost::serialization::make_nvp("rotation", rotation);
+    ar & boost::serialization::make_nvp("movable", movable);
+    ar & boost::serialization::make_nvp("visible", visible);
+    ar & boost::serialization::make_nvp("snap_to_grid", snapToGrid);
+    ar & boost::serialization::make_nvp("highlight", highlightEnabled);
+
+    setPos(x, y);
+    setRotation(rotation);
+    setMovable(movable);
+    setVisible(visible);
+    setSnapToGrid(snapToGrid);
+    setHighlightEnabled(highlightEnabled);
 }
 
 void Item::copyAttributes(Item& dest) const
@@ -87,11 +112,6 @@ void Item::copyAttributes(Item& dest) const
     dest._highlighted = _highlighted;
     dest._oldPos = _oldPos;
     dest._oldRot = _oldRot;
-}
-
-void Item::addItemTypeIdToContainer(gpds::container& container) const
-{
-    container.add_attribute( "type_id", type() );
 }
 
 QSchematic::Scene* Item::scene() const

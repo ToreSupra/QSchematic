@@ -64,13 +64,12 @@ The following targets are provided:
 Dependencies:
   - A C++20 capable compiler
   - Qt5 (>= 5.15) or Qt6
-  - [GPDS](https://github.com/simulton/gpds) for (de)serialization
+  - [Boost](https://www.boost.org/) for (de)serialization
 
-If the cmake option `QSCHEMATIC_DEPENDENCY_GPDS_DOWNLOAD` is enabled (default), cmake will automatically pull the `GPDS` dependency.
 Therefore, assuming a system with a working Qt5 or Qt6 installation, all you have to do is:
 
 ```shell
-git clone https://github.com/simulton/qschematic
+git clone https://github.com/ToreSupra/QSchematic.git
 cd qschematic
 cmake -B build
 cmake --build build
@@ -90,7 +89,7 @@ include(FetchContent)
 # Fetch QSchematic
 FetchContent_Declare(
     qschematic
-    GIT_REPOSITORY https://github.com/simulton/qschematic
+    GIT_REPOSITORY https://github.com/ToreSupra/QSchematic.git
     GIT_TAG        master
 )
 FetchContent_MakeAvailable(qschematic)
@@ -107,7 +106,7 @@ To change options & variables, the call to `FetchContent_MakeAvailable()` shown 
 ```cmake
 FetchContent_Declare(
     qschematic
-    GIT_REPOSITORY https://github.com/simulton/qschematic
+    GIT_REPOSITORY https://github.com/ToreSupra/QSchematic.git
     GIT_TAG        master
 )
 FetchContent_GetProperties(qschematic)
@@ -115,8 +114,6 @@ if(NOT qschematic_POPULATED)
     FetchContent_Populate(qschematic)
     
     set(QSCHEMATIC_BUILD_DEMO OFF CACHE INTERNAL "")
-    set(QSCHEMATIC_DEPENDENCY_GPDS_DOWNLOAD OFF CACHE INTERNAL "")
-    set(QSCHEMATIC_DEPENDENCY_GPDS_TARGET "gpds-shared" CACHE INTERNAL "")
     
     add_subdirectory(${qschematic_SOURCE_DIR} ${qschematic_BINARY_DIR})
 endif()

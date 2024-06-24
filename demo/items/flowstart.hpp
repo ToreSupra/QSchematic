@@ -12,8 +12,9 @@ public:
     FlowStart();
     ~FlowStart() override = default;
 
-    gpds::container to_container() const override;
-    void from_container(const gpds::container& container) override;
+    friend class boost::serialization::access;
+    template <class Archive>
+    void serialize(Archive& ar, const unsigned int version);
     std::shared_ptr<Item> deepCopy() const override;
     QRectF boundingRect() const override;
     void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
@@ -24,3 +25,5 @@ protected:
 private:
     QPolygon _symbolPolygon;
 };
+
+BOOST_CLASS_EXPORT_KEY(FlowStart)

@@ -47,7 +47,6 @@ function(setup_target_common target)
                 items/itemfunctions.hpp
                 items/connector.hpp
                 items/item.hpp
-                items/itemfactory.hpp
                 items/itemmimedata.hpp
                 items/label.hpp
                 items/node.hpp
@@ -88,7 +87,6 @@ function(setup_target_common target)
             commands/wirepoint_move.cpp
             items/connector.cpp
             items/item.cpp
-            items/itemfactory.cpp
             items/itemmimedata.cpp
             items/label.cpp
             items/node.cpp
@@ -123,7 +121,7 @@ function(setup_target_common target)
             Qt::Core
             Qt::Gui
             Qt::Widgets
-            ${QSCHEMATIC_DEPENDENCY_GPDS_TARGET}
+            ${Boost_LIBRARIES}
     )
 
     set_target_properties(
