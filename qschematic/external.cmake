@@ -3,7 +3,6 @@ include(FetchContent)
 ########################################################################################################################
 # Boost
 ########################################################################################################################
-set(BOOST_ROOT "C:/Users/Clement/Documents/Libs/boost_1_85_0")
 set(Boost_USE_STATIC_LIBS ON)
 set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
